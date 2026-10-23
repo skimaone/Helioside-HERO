@@ -43,7 +43,7 @@ static void editorTests(const File& out){HeroProcessor p;p.prepareToPlay(48000,5
 #if JUCE_WINDOWS
  e->addToDesktop(0);e->setVisible(true);
 #endif
- auto snap=[&](const String& name){e->refreshForTesting();auto stream=out.getChildFile(name+".png").createOutputStream();auto image=e->createComponentSnapshot(e->getLocalBounds());check(stream&&PNGImageFormat().writeImageToStream(image,*stream),"Editor capture "+name);};
+ auto snap=[&](const String& name){e->refreshForTesting();if(p.value(0)>.5f)check(e->lcdHasReadoutsForTesting(),"LCD contains visible parameter readouts: "+name);auto stream=out.getChildFile(name+".png").createOutputStream();auto image=e->createComponentSnapshot(e->getLocalBounds());check(stream&&PNGImageFormat().writeImageToStream(image,*stream),"Editor capture "+name);};
  for(int width:{900,1200,1500,1800,2400}){e->setSize(width,roundToInt(width*111./1200.));snap("hero-width-"+String(width));}
  auto* red=e->controlForTesting("vcaColour");check(red!=nullptr,"Endless red control attached");if(red){set(p,"vcaColour",15);red->keyPressed(KeyPress(KeyPress::upKey));check(p.value(5)==0,"Red control wraps 15 to 0");red->keyPressed(KeyPress(KeyPress::downKey));check(p.value(5)==15,"Red control wraps 0 to 15");}
  for(const char* id:{"threshold","attack","release","shape","gain","mode","meterMode","tone","power"}){auto* c=e->controlForTesting(id);check(c!=nullptr,String("Live control attached: ")+id);if(c){const float before=p.state.getRawParameterValue(id)->load();c->keyPressed(KeyPress(before>0?KeyPress::downKey:KeyPress::upKey));check(p.state.getRawParameterValue(id)->load()!=before,String("Control updates host parameter: ")+id);}}

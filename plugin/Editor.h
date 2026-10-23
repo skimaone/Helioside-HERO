@@ -37,6 +37,7 @@ public:
     void showMenu();
     void refreshForTesting(){timerCallback();}
     bool assetsValidForTesting()const;
+    bool lcdHasReadoutsForTesting()const;
     juce::Component* controlForTesting(const juce::String&)const;
 private:
     HeroProcessor& processor;

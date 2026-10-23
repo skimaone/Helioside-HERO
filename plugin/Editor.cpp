@@ -52,7 +52,10 @@ void HeroEditor::timerCallback(){bool changed=first;for(size_t i=0;i<previous.si
     const int pos=roundToInt(processor.value(10)<.5f?gr*2:(Decibels::gainToDecibels(jmax(level,1e-8f))+18)*2);if(pos!=meterPosition){meterPosition=pos;const float s=getWidth()/2400.f;repaint(roundToInt(1266*s),roundToInt(32*s),roundToInt(779*s),roundToInt(34*s));}
 }
 void HeroEditor::renderLCD(){
-    Image content(Image::RGB,160,128,true);Graphics g(content);g.fillAll(Colour(0xff040402));g.setFont(Font(FontOptions(lcdFace).withHeight(15.f)));
+    // These images are sampled on the CPU below. Software backing avoids
+    // reading unflushed Direct2D draws and repeated GPU readbacks on Windows.
+    Image content(Image::RGB,160,128,true,SoftwareImageType{});
+    {Graphics g(content);g.fillAll(Colour(0xff040402));g.setFont(Font(FontOptions(lcdFace).withHeight(15.f)));
     const String rows[]={"T"+String(roundToInt(previous[1])).paddedLeft('0',2),"A"+String(roundToInt(previous[2])).paddedLeft('0',2),"R"+String(roundToInt(previous[3])).paddedLeft('0',2),"S"+String(roundToInt(previous[4])).paddedLeft('0',2),String(previous[8]*.5f,1)+"DB"};
     for(int i=0;i<5;++i){g.setColour(Colour(i==4?0xffbeec96:0xffd6f0a0));g.setFont(Font(FontOptions(lcdFace).withHeight(i==4?11.f:15.f)));g.drawText(rows[i],5,8+22*i,58,19,Justification::centredLeft,false);}
     const int mode=roundToInt(previous[9]);const bool active=previous[0]>.5f&&mode!=2;const String status=active?(mode==0?"LINK":"IN"):"OUT";g.setColour(Colour(!active?0xffe23020:mode==0?0xff50c8e6:0xfff08030));g.setFont(Font(FontOptions(lcdFace).withHeight(15.f)));g.drawText(status,63,1,67,19,Justification::centredRight,false);
@@ -61,8 +64,9 @@ void HeroEditor::renderLCD(){
     titan::Parameters p;p.threshold=previous[1];p.shape=previous[4];titan::Engine model;model.setParameters(p);Path path;bool begun=false;
     // Exact clean feedback equilibrium, not the GUI draft's unrelated feed-forward curve.
     for(int i=0;i<=240;++i){const double dbu=-35.+i*.25,dbfs=dbu-22.;const double out=active?dbu-model.staticReduction(dbfs):dbu;const auto pt=point(dbu,out);if(!begun){path.startNewSubPath(pt);begun=true;}else path.lineTo(pt);}g.setColour(Colour(0xffe2f2f0));g.strokePath(path,PathStrokeType(1.f));
-    Image grid(Image::RGB,100,80,true);{Graphics small(grid);small.setImageResamplingQuality(Graphics::highResamplingQuality);small.drawImage(content,grid.getBounds().toFloat());}
-    lcd=Image(Image::RGB,400,320,true);Graphics dots(lcd);dots.fillAll(Colour(0xff030303));
+    } // Finish the content draw before downsampling or reading any pixels.
+    Image grid(Image::RGB,100,80,true,SoftwareImageType{});{Graphics small(grid);small.setImageResamplingQuality(Graphics::highResamplingQuality);small.drawImage(content,grid.getBounds().toFloat());}
+    lcd=Image(Image::RGB,400,320,true,SoftwareImageType{});Graphics dots(lcd);dots.fillAll(Colour(0xff030303));
     for(int y=0;y<80;++y)for(int x=0;x<100;++x){const auto c=grid.getPixelAt(x,y);const float energy=jmax(c.getFloatRed(),c.getFloatGreen(),c.getFloatBlue());const float light=previous[0]>.5f?1.f:.03f;Colour col=Colour::fromFloatRGBA(jlimit(0.f,1.f,(c.getFloatRed()*1.3f+.035f)*light),jlimit(0.f,1.f,(c.getFloatGreen()*1.3f+.035f)*light),jlimit(0.f,1.f,(c.getFloatBlue()*1.3f+.035f)*light),1.f);if(energy>.1f){dots.setColour(col.withAlpha(.20f));dots.fillEllipse(x*4.f-.2f,y*4.f-.2f,4.4f,4.4f);}dots.setColour(col);dots.fillEllipse(x*4.f+.6f,y*4.f+.6f,2.8f,2.8f);}
     dots.setGradientFill(ColourGradient(Colours::white.withAlpha(.055f),0,0,Colours::transparentWhite,210,250,false));dots.fillAll();
 }
@@ -71,4 +75,11 @@ void HeroEditor::showMenu(){PopupMenu menu;menu.addSectionHeader("Suntech Audio 
     Component::SafePointer<HeroEditor> self(this);menu.showMenuAsync(PopupMenu::Options().withTargetComponent(this),[self](int choice){if(!self)return;if(choice==1||choice==2){auto* p=self->processor.state.getParameter("oversampling");p->beginChangeGesture();p->setValueNotifyingHost(choice==2?1.f:0.f);p->endChangeGesture();}else if(choice>=10&&choice<15){const int zoom[]={75,100,125,150,200};int w=zoom[choice-10]*12;self->setSize(w,roundToInt(w*111./1200.));}else if(choice==20)AlertWindow::showMessageBoxAsync(MessageBoxIconType::InfoIcon,"Suntech Audio HERO 0.1.0","Independent Titan-inspired research model. Based on the supplied v10 DSP, not a circuit-accurate or manufacturer-endorsed emulation.\n\n4x/8x FIR oversampling; fixed compensated latency. Right-click the panel for quality and zoom settings.","OK",self);});
 }
 bool HeroEditor::assetsValidForTesting()const{if(!panel.isValid()||!meterOff.isValid()||!meterOn.isValid()||!lcdFace||!lcd.isValid())return false;for(auto* c:controls)if(!c->assetsValid())return false;return true;}
+bool HeroEditor::lcdHasReadoutsForTesting()const{
+    if(!lcd.isValid())return false;int green=0;
+    const Image::BitmapData data(lcd,Image::BitmapData::readOnly);
+    // Left-column text must contain bright pale-green dots, not just glass.
+    for(int y=16;y<240;++y)for(int x=6;x<146;++x){const auto c=data.getPixelColour(x,y);if(c.getGreen()>90&&c.getGreen()>c.getBlue()*1.15f&&c.getGreen()>c.getRed()*1.02f)++green;}
+    return green>80;
+}
 Component* HeroEditor::controlForTesting(const String& id)const{for(auto* c:controls)if(c->getComponentID()==id)return c;return nullptr;}
