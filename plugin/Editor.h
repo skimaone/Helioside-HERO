@@ -1,5 +1,6 @@
 #pragma once
 #include "Processor.h"
+#include "DisplayModel.h"
 #include <juce_gui_extra/juce_gui_extra.h>
 
 class HeroControl final : public juce::Component,public juce::SettableTooltipClient {
@@ -26,6 +27,7 @@ private:
     juce::Image strip;
     void set(float);
     void setTogglePosition(bool right);
+    void setToneFromPoint(juce::Point<float>);
     float current()const{return processor.value(index);}
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(HeroControl)
 };
@@ -42,6 +44,7 @@ public:
     bool assetsValidForTesting()const;
     bool lcdHasReadoutsForTesting()const;
     const juce::Image& lcdForTesting()const{return lcd;}
+    const hero_display::Curves& curvesForTesting()const{return displayCurves;}
     juce::Component* controlForTesting(const juce::String&)const;
 private:
     HeroProcessor& processor;
@@ -55,6 +58,8 @@ private:
     float gr=0,level=0;
     int meterPosition=-999;
     bool first=true;
+    hero_display::Curves displayCurves{};
+    std::array<float,4> curveParameters{{-1,-1,-1,-1}};
     void timerCallback()override;
     void renderLCD();
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(HeroEditor)

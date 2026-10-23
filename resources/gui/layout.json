@@ -247,8 +247,11 @@
       "size": 96,
       "states": {
         "fat": 0,
-        "air": 1
-      }
+        "normal": 1,
+        "air": 2
+      },
+      "positions": 3,
+      "render": "FAT: strip frame 0; NORMAL: frame 0 rotated 90 degrees counterclockwise so lever points down; AIR: frame 1. NORMAL caption below toggle."
     }
   },
   "logo": {

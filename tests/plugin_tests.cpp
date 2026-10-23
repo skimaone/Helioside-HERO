@@ -56,7 +56,11 @@ static void interactionTests(HeroEditor& e,HeroProcessor& p){
  set(p,"threshold",0);teal->mouseDown(event(teal));teal->mouseDrag(event(teal,360));check(p.value(1)==99,"Teal range requires a 360-pixel full throw");teal->mouseUp(event(teal,360));
  set(p,"gain",0);gain->mouseDown(event(gain));gain->mouseDrag(event(gain,360));check(p.value(8)==23,"Make-up knob uses the same full throw despite its smaller range");gain->mouseUp(event(gain,360));
  auto* mode=e.controlForTesting("mode");p.selectPreferredMode(1);mode->keyPressed(KeyPress(KeyPress::upKey));check(p.value(9)==2,"Two-position front Mode selects OUT");mode->keyPressed(KeyPress(KeyPress::downKey));check(p.value(9)==1,"Two-position front Mode restores Independent IN");
- auto* tone=e.controlForTesting("tone");set(p,"tone",1);tone->keyPressed(KeyPress(KeyPress::downKey));check(p.value(11)==0,"Tone left selects FAT");tone->keyPressed(KeyPress(KeyPress::upKey));check(p.value(11)==2,"Tone right selects AIR");tone->mouseDoubleClick(event(tone));check(p.value(11)==1,"NORMAL remains available as the original default");
+ auto* tone=e.controlForTesting("tone");set(p,"tone",1);tone->keyPressed(KeyPress(KeyPress::leftKey));check(p.value(11)==0,"Tone left selects FAT");tone->keyPressed(KeyPress(KeyPress::rightKey));check(p.value(11)==2,"Tone right selects AIR");tone->keyPressed(KeyPress(KeyPress::downKey));check(p.value(11)==1,"Tone down selects NORMAL");tone->mouseDoubleClick(event(tone));check(p.value(11)==1,"NORMAL remains available as the original default");
+
+ auto clickTone=[&](float x,float y){const auto t=Time::getCurrentTime();const Point<float> point{x*tone->getWidth(),y*tone->getHeight()};MouseEvent ev{Desktop::getInstance().getMainMouseSource(),point,ModifierKeys(ModifierKeys::leftButtonModifier),1.f,0.f,0.f,0.f,0.f,tone,tone,t,point,t,1,false};tone->mouseDown(ev);tone->mouseUp(ev);};
+ clickTone(.2f,.4f);check(p.value(11)==0,"Clicking left throw selects FAT");clickTone(.8f,.4f);check(p.value(11)==2,"Clicking right throw selects AIR");clickTone(.5f,.85f);check(p.value(11)==1,"Clicking lower throw selects NORMAL");
+ tone->mouseDown(event(tone));tone->mouseDrag(event(tone,-12));tone->mouseUp(event(tone,-12));check(p.value(11)==1,"Downward toggle drag selects NORMAL");
  set(p,"threshold",45);set(p,"gain",0);p.selectPreferredMode(0);set(p,"vcaColour",0);
 }
 static void editorTests(const File& out){HeroProcessor p;p.prepareToPlay(48000,512);std::unique_ptr<AudioProcessorEditor> base(p.createEditorIfNeeded());auto* e=dynamic_cast<HeroEditor*>(base.get());check(e&&e->assetsValidForTesting(),"Every supplied control image, panel, meter and embedded LCD font decodes");if(!e)return;
@@ -67,8 +71,23 @@ static void editorTests(const File& out){HeroProcessor p;p.prepareToPlay(48000,5
  auto snap=[&](const String& name){e->refreshForTesting();if(p.value(0)>.5f)check(e->lcdHasReadoutsForTesting(),"LCD contains visible parameter readouts: "+name);auto file=out.getChildFile(name+".png");file.deleteFile();auto stream=file.createOutputStream();auto image=e->createComponentSnapshot(e->getLocalBounds());check(stream&&PNGImageFormat().writeImageToStream(image,*stream),"Editor capture "+name);};
  for(int width:{900,1200,1500,1800,2400}){e->setSize(width,roundToInt(width*111./1200.));snap("hero-width-"+String(width));}
  {auto file=out.getChildFile("hero-lcd-800x640.png");file.deleteFile();auto stream=file.createOutputStream();check(stream&&PNGImageFormat().writeImageToStream(e->lcdForTesting(),*stream),"Live LCD high-resolution capture");}
+
+ set(p,"tone",0);snap("hero-tone-fat");set(p,"tone",2);snap("hero-tone-air");set(p,"tone",1);snap("hero-tone-normal");
+ set(p,"threshold",45);set(p,"shape",45);set(p,"attack",0);set(p,"release",30);snap("hero-fast-attack");const auto fast=e->curvesForTesting();
+ set(p,"attack",99);snap("hero-slow-attack");const auto slow=e->curvesForTesting();float attackDelta=0;bool sameSteady=true;
+ for(size_t i=0;i<fast.timing.size()/2;++i)attackDelta=jmax(attackDelta,std::abs(fast.timing[i].y-slow.timing[i].y));
+ for(size_t i=0;i<fast.steady.size();++i)sameSteady&=fast.steady[i]==slow.steady[i];
+ check(attackDelta>.1f&&sameSteady,"Attack changes the clean-engine timing trajectory without changing the static knee");
+ set(p,"attack",30);set(p,"release",0);snap("hero-fast-release");const auto shortRelease=e->curvesForTesting();
+ set(p,"release",99);snap("hero-slow-release");const auto longRelease=e->curvesForTesting();float releaseDelta=0;
+ for(size_t i=shortRelease.timing.size()/2;i<shortRelease.timing.size();++i)releaseDelta=jmax(releaseDelta,std::abs(shortRelease.timing[i].y-longRelease.timing[i].y));
+ check(releaseDelta>.01f,"Release changes the falling clean-engine timing trajectory");
+ bool finite=true;for(const auto& curve:{fast,slow,shortRelease,longRelease})for(const auto& point:curve.timing)finite&=std::isfinite(point.x)&&std::isfinite(point.y)&&point.y<=point.x+.001f;
+ check(finite,"Timing trajectories stay finite and show attenuation, not invented gain");
+ std::printf("Display attack trajectory change %.4f dB; release change %.4f dB\n",attackDelta,releaseDelta);
+ set(p,"attack",30);set(p,"release",30);
  auto* red=e->controlForTesting("vcaColour");check(red!=nullptr,"Endless red control attached");if(red){set(p,"vcaColour",15);red->keyPressed(KeyPress(KeyPress::upKey));check(p.value(5)==0,"Red control wraps 15 to 0");red->keyPressed(KeyPress(KeyPress::downKey));check(p.value(5)==15,"Red control wraps 0 to 15");}
- for(const char* id:{"threshold","attack","release","shape","gain","mode","meterMode","tone","power"}){auto* c=e->controlForTesting(id);check(c!=nullptr,String("Live control attached: ")+id);if(c){const float before=p.state.getRawParameterValue(id)->load();c->keyPressed(KeyPress(before>0?KeyPress::downKey:KeyPress::upKey));check(p.state.getRawParameterValue(id)->load()!=before,String("Control updates host parameter: ")+id);}}
+ for(const char* id:{"threshold","attack","release","shape","gain","mode","meterMode","tone","power"}){auto* c=e->controlForTesting(id);check(c!=nullptr,String("Live control attached: ")+id);if(c){const float before=p.state.getRawParameterValue(id)->load();c->keyPressed(KeyPress(String(id)=="tone"?KeyPress::leftKey:before>0?KeyPress::downKey:KeyPress::upKey));check(p.state.getRawParameterValue(id)->load()!=before,String("Control updates host parameter: ")+id);}}
  e->setSize(1200,111);set(p,"power",1);set(p,"mode",0);snap("hero-link");set(p,"mode",1);snap("hero-in");set(p,"mode",2);snap("hero-out");set(p,"mode",0);set(p,"power",0);snap("hero-power-off");set(p,"power",1);set(p,"threshold",10);set(p,"attack",0);set(p,"shape",0);set(p,"vcaColour",15);set(p,"dynamicColour",15);AudioBuffer<float>b(2,512);for(int k=0;k<30;++k){for(int c=0;c<2;++c)for(int i=0;i<512;++i)b.setSample(c,i,(float)(.7*std::sin(2*titan::pi*997*(k*512+i)/48000.)));process(p,b);}snap("hero-compressing-gr");set(p,"meterMode",1);snap("hero-compressing-level");e->removeFromDesktop();e->setSize(1200,111);
 }
 int main(int argc,char**argv){ScopedJuceInitialiser_GUI gui;if(argc!=3)return 2;File out=File::getCurrentWorkingDirectory().getChildFile(argv[2]);out.createDirectory();String mode(argv[1]);if(mode=="editor")editorTests(out);else if(mode=="analysis")analysis(out);else processorTests();out.getChildFile("result.txt").replaceWithText("Failures: "+String(failures)+"\n");return failures?1:0;}
