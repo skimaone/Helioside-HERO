@@ -30,3 +30,5 @@ The supplied 2400×222 panel, separately lit red/teal filmstrips, fixed shadows,
 The original nine CTest programs run unchanged with assertions enabled in Release. New checks cover core equivalence, independent FIR-wrapper comparison, sample-exact bypass, fixed latency, mono/stereo rates, block-size invariance, state, automation, allocations, aliasing/CPU, live GUI controls/assets/snapshots and actual dynamically loaded VST3 audio/window lifecycle. Build/test measurements and 100%/200% captures are delivered as Actions artifacts.
 
 Hardware-matched transfer, phase-referenced harmonics, exact transient calibration, ABX and FL Studio manual testing remain outside these automated checks. This release makes no quantitative hardware-fidelity claim.
+
+Current Windows results and downloads are in [the 0.1.0 release report](RELEASE_0.1.0.md).

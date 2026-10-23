@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "revision": "ba6c0b3b1262d317ca55c9a0d1219c548e3c45df",
+  "sha256": "425d87b583ba20eaaee84237e424e63984a382d5ac89622bb5a4a5e655b30b75",
+  "files": 4,
+  "exports": [
+    "ExitDll",
+    "GetPluginFactory",
+    "InitDll"
+  ],
+  "embedded_assets": [
+    "DejaVuSansMono.ttf",
+    "faceplate.png",
+    "hero_knob_red_shadow_512.png",
+    "hero_knob_red_strip_256.png",
+    "hero_knob_teal_shadow_512.png",
+    "hero_knob_teal_strip_256.png",
+    "meter_all_off.png",
+    "meter_all_on.png",
+    "switch_center.png",
+    "switch_left.png",
+    "switch_right.png"
+  ],
+  "product": "Suntech Audio HERO",
+  "version": "0.1.0",
+  "manufacturer": "Suntech Audio",
+  "class_ids": [
+    "ABCDEF011234ABCD536E74634865726F",
+    "ABCDEF019182FAEB536E74634865726F",
+    "ABCDEF01C0DEF00D536E74634865726F"
+  ]
+}
