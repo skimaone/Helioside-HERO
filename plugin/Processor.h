@@ -3,9 +3,10 @@
 #include <juce_dsp/juce_dsp.h>
 #include "TitanCore.h"
 
-class HeroProcessor final : public juce::AudioProcessor {
+class HeroProcessor final : public juce::AudioProcessor,private juce::AudioProcessorValueTreeState::Listener {
 public:
     HeroProcessor();
+    ~HeroProcessor()override;
     const juce::String getName() const override { return "Suntech Audio HERO"; }
     void prepareToPlay(double, int) override;
     void releaseResources() override { ready=false; }
@@ -30,6 +31,8 @@ public:
     float value(int i) const noexcept {return values[(size_t)i]->load(std::memory_order_relaxed);}
     std::array<float,2> takePeaks() noexcept {return {grPeak.exchange(0),outputPeak.exchange(0)};}
     static juce::AudioProcessorValueTreeState::ParameterLayout layout();
+    int preferredMode()const noexcept {return engagedMode.load();}
+    void selectPreferredMode(int);
 private:
     static constexpr int quantum=8,delayCapacity=512;
     struct Delay {
@@ -54,6 +57,8 @@ private:
     int channels=2,controlLeft=0;
     bool ready=false;
     std::atomic<float> grPeak{0},outputPeak{0};
+    std::atomic<int> engagedMode{0};
+    void parameterChanged(const juce::String&,float)override;
     std::array<double,11> targets() const noexcept;
     void setTargets() noexcept;
     void updateControls() noexcept;

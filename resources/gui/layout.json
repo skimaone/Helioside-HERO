@@ -11,14 +11,17 @@
   "controls": {
     "power": {
       "type": "toggle",
+      "sprite": "switches/hero_toggle_strip.png",
+      "frames": 2,
+      "frame_px": 96,
       "center": [
         226,
         188
       ],
-      "size": 72,
+      "size": 96,
       "states": {
-        "off": "switches/switch_left.png",
-        "on": "switches/switch_right.png"
+        "off": 0,
+        "on": 1
       }
     },
     "lcd": {
@@ -33,176 +36,228 @@
         160,
         128
       ],
-      "note": "draw content with render_lcd.render() then lcd_dotmatrix() (100 x 80 dot grid)"
+      "note": "draw content with render_lcd.render() then lcd_dotmatrix() (100 x 80 dot grid)",
+      "sprites": {
+        "2x": "lcd/hero_lcd_screen_2x_200x160.png",
+        "4x": "lcd/hero_lcd_screen_4x_400x320.png",
+        "8x": "lcd/hero_lcd_screen_8x_800x640.png"
+      }
     },
     "vca_colour": {
       "type": "stepped_knob",
-      "sprite": "knobs/hero_knob_red_strip_256.png",
+      "sprite": "knobs/hero_knob_red_strip.png",
       "frames": 16,
+      "frame_px": 150,
       "center": [
         800,
         112
       ],
-      "size": 88,
+      "size": 120,
       "detent_deg": 22.5,
       "endless": true,
-      "position0_deg": 191.25
+      "position0_deg": 191.25,
+      "note": "frame k = position k (shadow built into the sprite)",
+      "end_labels": [
+        "PWM",
+        "VINTAGE"
+      ]
     },
     "parallel_mix": {
       "type": "stepped_knob",
-      "sprite": "knobs/hero_knob_red_strip_256.png",
+      "sprite": "knobs/hero_knob_red_strip.png",
       "frames": 16,
+      "frame_px": 150,
       "center": [
         970,
         112
       ],
-      "size": 88,
+      "size": 120,
       "detent_deg": 22.5,
       "endless": true,
-      "position0_deg": 191.25
+      "position0_deg": 191.25,
+      "note": "frame k = position k (shadow built into the sprite)",
+      "end_labels": [
+        "DIRECT",
+        "COMP"
+      ]
     },
     "dynamic_colour": {
       "type": "stepped_knob",
-      "sprite": "knobs/hero_knob_red_strip_256.png",
+      "sprite": "knobs/hero_knob_red_strip.png",
       "frames": 16,
+      "frame_px": 150,
       "center": [
         1140,
         112
       ],
-      "size": 88,
+      "size": 120,
       "detent_deg": 22.5,
       "endless": true,
-      "position0_deg": 191.25
+      "position0_deg": 191.25,
+      "note": "frame k = position k (shadow built into the sprite)"
     },
     "meter": {
       "type": "led_meter",
       "rect": [
         1268,
         34,
-        775,
-        30
+        751,
+        32
       ],
-      "segments": 83,
-      "step_db": 0.5,
+      "segments": 42,
+      "step_db": 1,
       "scale_db": [
         -21,
         20
       ],
-      "first_segment_x": 1283,
-      "pitch": 9,
-      "segment": [
-        7,
-        14
+      "first_led_x": 1278,
+      "led_y": 35,
+      "pitch": 17,
+      "led_size": [
+        34,
+        30
       ],
-      "render": "tools/build_panel.py meter(lit_fn) - or composite meter_all_off / meter_all_on per segment"
+      "colours": {
+        "below_0": "lime",
+        "at_0": "orange",
+        "above_0": "red"
+      },
+      "sprites": "meter/led_<lime|orange|red>_<on|off>.png (scale to led_size)",
+      "render": "draw meter_window_bg, every LED off, then the lit LEDs on top"
     },
     "threshold": {
       "type": "knob",
-      "sprite": "knobs/hero_knob_teal_strip_256.png",
+      "sprite": "knobs/hero_knob_teal_strip.png",
       "frames": 128,
+      "frame_px": 150,
       "center": [
         1340,
         128
       ],
-      "size": 104,
+      "size": 136,
       "sweep_deg": [
         -150,
         150
-      ]
+      ],
+      "note": "shadow built into the sprite"
     },
     "attack": {
       "type": "knob",
-      "sprite": "knobs/hero_knob_teal_strip_256.png",
+      "sprite": "knobs/hero_knob_teal_strip.png",
       "frames": 128,
+      "frame_px": 150,
       "center": [
         1497,
         128
       ],
-      "size": 104,
+      "size": 136,
       "sweep_deg": [
         -150,
         150
-      ]
+      ],
+      "note": "shadow built into the sprite"
     },
     "release": {
       "type": "knob",
-      "sprite": "knobs/hero_knob_teal_strip_256.png",
+      "sprite": "knobs/hero_knob_teal_strip.png",
       "frames": 128,
+      "frame_px": 150,
       "center": [
         1654,
         128
       ],
-      "size": 104,
+      "size": 136,
       "sweep_deg": [
         -150,
         150
-      ]
+      ],
+      "note": "shadow built into the sprite"
     },
     "shape": {
       "type": "knob",
-      "sprite": "knobs/hero_knob_teal_strip_256.png",
+      "sprite": "knobs/hero_knob_teal_strip.png",
       "frames": 128,
+      "frame_px": 150,
       "center": [
         1811,
         128
       ],
-      "size": 104,
+      "size": 136,
       "sweep_deg": [
         -150,
         150
-      ]
+      ],
+      "note": "shadow built into the sprite"
     },
     "gain": {
       "type": "knob",
-      "sprite": "knobs/hero_knob_teal_strip_256.png",
+      "sprite": "knobs/hero_knob_teal_strip.png",
       "frames": 128,
+      "frame_px": 150,
       "center": [
         1968,
         128
       ],
-      "size": 104,
+      "size": 136,
       "sweep_deg": [
         -150,
         150
-      ]
+      ],
+      "note": "shadow built into the sprite"
     },
     "mode": {
       "type": "toggle",
+      "sprite": "switches/hero_toggle_strip.png",
+      "frames": 2,
+      "frame_px": 96,
       "center": [
-        2150,
-        44
+        2096,
+        40
       ],
-      "size": 72,
+      "size": 96,
       "states": {
-        "link": "switches/switch_left.png",
-        "in": "switches/switch_center.png",
-        "out": "switches/switch_right.png"
+        "in": 0,
+        "out": 1
       }
     },
     "meter_mode": {
       "type": "toggle",
+      "sprite": "switches/hero_toggle_strip.png",
+      "frames": 2,
+      "frame_px": 96,
       "center": [
-        2150,
-        108
+        2096,
+        106
       ],
-      "size": 72,
+      "size": 96,
       "states": {
-        "gr": "switches/switch_left.png",
-        "level": "switches/switch_right.png"
+        "gr": 0,
+        "level": 1
       }
     },
     "tone": {
       "type": "toggle",
+      "sprite": "switches/hero_toggle_strip.png",
+      "frames": 2,
+      "frame_px": 96,
       "center": [
-        2150,
+        2096,
         172
       ],
-      "size": 72,
+      "size": 96,
       "states": {
-        "fat": "switches/switch_left.png",
-        "normal": "switches/switch_center.png",
-        "air": "switches/switch_right.png"
+        "fat": 0,
+        "air": 1
       }
     }
+  },
+  "logo": {
+    "rect": [
+      2191,
+      44,
+      70,
+      134
+    ],
+    "file": "assets/suntech_sun_logo_white.png"
   }
 }

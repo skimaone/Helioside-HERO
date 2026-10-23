@@ -2,7 +2,7 @@
 import argparse, hashlib, json, re, struct, zipfile, tempfile
 from pathlib import Path
 NAME = 'Suntech Audio HERO'
-VERSION = '0.1.0'
+VERSION = '0.1.1'
 def digest(data): return hashlib.sha256(data).hexdigest()
 def exports(path):
     data=path.read_bytes()

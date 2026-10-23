@@ -13,6 +13,13 @@ AudioProcessorValueTreeState::ParameterLayout HeroProcessor::layout(){
 }
 HeroProcessor::HeroProcessor():AudioProcessor(BusesProperties().withInput("Input",AudioChannelSet::stereo(),true).withOutput("Output",AudioChannelSet::stereo(),true)),state(*this,nullptr,"SUNTECH_HERO",layout()){
     for(size_t i=0;i<ids.size();++i)values[i]=state.getRawParameterValue(ids[i]);
+    state.addParameterListener("mode",this);
+}
+HeroProcessor::~HeroProcessor(){state.removeParameterListener("mode",this);}
+void HeroProcessor::parameterChanged(const String&,float v){const int mode=roundToInt(v);if(mode<2)engagedMode.store(jlimit(0,1,mode));}
+void HeroProcessor::selectPreferredMode(int mode){mode=jlimit(0,1,mode);const bool changed=engagedMode.exchange(mode)!=mode;
+    if(value(9)<1.5f){auto* p=state.getParameter("mode");p->beginChangeGesture();p->setValueNotifyingHost(p->convertTo0to1((float)mode));p->endChangeGesture();}
+    else if(changed)updateHostDisplay(ChangeDetails{}.withNonParameterStateChanged(true));
 }
 bool HeroProcessor::isBusesLayoutSupported(const BusesLayout& b)const{
     const auto in=b.getMainInputChannelSet();return (in==AudioChannelSet::mono()||in==AudioChannelSet::stereo())&&in==b.getMainOutputChannelSet();
@@ -64,10 +71,10 @@ void HeroProcessor::process(AudioBuffer<float>& b,bool bypass){
     publish(grPeak,wet.getCurrentValue()>0.f?blockGr:0.f);publish(outputPeak,blockPeak);
     for(int c=channels;c<b.getNumChannels();++c)b.clear(c,0,b.getNumSamples());
 }
-void HeroProcessor::getStateInformation(MemoryBlock& b){auto xml=state.copyState().createXml();xml->setAttribute("formatVersion",1);copyXmlToBinary(*xml,b);}
+void HeroProcessor::getStateInformation(MemoryBlock& b){auto xml=state.copyState().createXml();xml->setAttribute("formatVersion",1);xml->setAttribute("preferredMode",preferredMode());copyXmlToBinary(*xml,b);}
 void HeroProcessor::setStateInformation(const void* data,int size){
     if(auto xml=getXmlFromBinary(data,size);xml&&xml->hasTagName("SUNTECH_HERO")&&xml->getIntAttribute("formatVersion",1)<=1){auto tree=ValueTree::fromXml(*xml);
-        for(int i=tree.getNumChildren();--i>=0;){auto node=tree.getChild(i);auto* p=state.getParameter(node["id"].toString());if(!p){tree.removeChild(i,nullptr);continue;}float v=(float)node["value"];if(!std::isfinite(v))v=p->convertFrom0to1(p->getDefaultValue());v=p->convertFrom0to1(jlimit(0.f,1.f,p->convertTo0to1(v)));node.setProperty("value",v,nullptr);}state.replaceState(tree);}
+        for(int i=tree.getNumChildren();--i>=0;){auto node=tree.getChild(i);auto* p=state.getParameter(node["id"].toString());if(!p){tree.removeChild(i,nullptr);continue;}float v=(float)node["value"];if(!std::isfinite(v))v=p->convertFrom0to1(p->getDefaultValue());v=p->convertFrom0to1(jlimit(0.f,1.f,p->convertTo0to1(v)));node.setProperty("value",v,nullptr);}state.replaceState(tree);engagedMode.store(value(9)<1.5f?roundToInt(value(9)):jlimit(0,1,xml->getIntAttribute("preferredMode",0)));}
 }
 AudioProcessorEditor* HeroProcessor::createEditor(){return new HeroEditor(*this);}
 AudioProcessor* JUCE_CALLTYPE createPluginFilter(){return new HeroProcessor;}

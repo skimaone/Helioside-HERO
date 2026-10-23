@@ -20,9 +20,12 @@ private:
     juce::RangedAudioParameter* parameter;
     int index,count;
     bool red,toggle,dragging=false;
-    float start=0,last=-999;
-    juce::Image strip,shadow,left,center,right;
+    float start=0,last=-999,dragSteps=0,wheelSteps=0;
+    int lastDragY=0;
+    juce::uint32 lastWheelTime=0;
+    juce::Image strip;
     void set(float);
+    void setTogglePosition(bool right);
     float current()const{return processor.value(index);}
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(HeroControl)
 };
@@ -38,11 +41,13 @@ public:
     void refreshForTesting(){timerCallback();}
     bool assetsValidForTesting()const;
     bool lcdHasReadoutsForTesting()const;
+    const juce::Image& lcdForTesting()const{return lcd;}
     juce::Component* controlForTesting(const juce::String&)const;
 private:
     HeroProcessor& processor;
     juce::OwnedArray<HeroControl> controls;
-    juce::Image panel,meterOff,meterOn,lcd;
+    juce::Image panel,panel1x,meterWindow,lcd;
+    std::array<juce::Image,3> ledOff,ledOn;
     juce::Typeface::Ptr lcdFace;
     juce::TooltipWindow tips{this,450};
     juce::ApplicationProperties preferences;
