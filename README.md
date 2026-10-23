@@ -2,13 +2,13 @@
 
 Windows x64 VST3 feedback compressor built from the supplied Titan research v10 engine, with the supplied Suntech Audio HERO rack GUI. This is an independent Titan-inspired software model, not a measured circuit-identical or manufacturer-endorsed emulation.
 
-**Windows x64 Release 0.1.0: verified.** [Download the complete VST3](https://github.com/skimaone/Helioside-HERO/actions/runs/39965710047/artifacts/12506857462) · [Tests and GUI captures](https://github.com/skimaone/Helioside-HERO/actions/runs/39965710047/artifacts/12507565450) · [Build report](docs/RELEASE_0.1.0.md)
+**Windows x64 Release 0.1.1: verified.** [Download the complete VST3](https://github.com/skimaone/Helioside-HERO/actions/runs/39976283992/artifacts/12511562027) · [Tests and GUI captures](https://github.com/skimaone/Helioside-HERO/actions/runs/39976283992/artifacts/12512220181) · [Build report](docs/RELEASE_0.1.1.md)
 
 ![Suntech Audio HERO Windows interface](docs/HERO.png)
 
 ## Install
 
-Download the Windows VST3 artifact from a successful [Actions build](https://github.com/skimaone/Helioside-HERO/actions). Extract the artifact and its inner `SuntechAudioHERO-0.1.0-Windows-x64-VST3.zip`. Close FL Studio, copy the complete `Suntech Audio HERO.vst3` folder to `C:\Program Files\Common Files\VST3`, keeping `Contents` intact, then rescan in Plugin Manager. The ZIP includes checksums and a per-file manifest.
+Download the Windows VST3 artifact from a successful [Actions build](https://github.com/skimaone/Helioside-HERO/actions). Extract the artifact and its inner `SuntechAudioHERO-0.1.1-Windows-x64-VST3.zip`. Close FL Studio, copy the complete `Suntech Audio HERO.vst3` folder to `C:\Program Files\Common Files\VST3`, keeping `Contents` intact, then rescan in Plugin Manager. The ZIP includes checksums and a per-file manifest.
 
 ## Controls
 
@@ -16,11 +16,11 @@ Download the Windows VST3 artifact from a successful [Actions build](https://git
 - VCA Colour and Dynamic Colour have 16 positions, default 0. The red encoders wrap 15→0. Colour is reduction-dependent; the engine's existing nonlinear laws and provisional calibration are retained.
 - Parallel Mix has 16 positions: 0 is 94% dry / 6% compressed; 15 is fully compressed (default). The dry and wet branches share the oversampled timeline.
 - Gain provides 0–11.5 dB make-up in 0.5 dB steps on the compressed branch.
-- LINK engages linked stereo control (default). IN engages independent left/right compression. OUT and POWER off provide raw bypass delayed by the reported plugin latency. Host bypass follows the same policy. Transitions fade over 20 ms.
-- FAT / NORMAL / AIR select the draft's GR-dependent detector/audio voicing; NORMAL is default.
+- The IN / OUT front switch engages compression or provides raw bypass delayed by the reported plugin latency. Right-click → Stereo control selects Linked (default) or Independent L/R; OUT → IN restores that selection. POWER off and host bypass follow the same delayed-raw policy. Transitions fade over 20 ms.
+- FAT / NORMAL / AIR select the draft's GR-dependent detector/audio voicing; NORMAL is default. The front switch selects FAT / AIR; right-click → Tone also offers NORMAL. A neutral NORMAL badge appears over the switch in that mode.
 - GR shows actual modeled attenuation. LEVEL is output peak level relative to the −18 dBFS = 0 VU convention. The meter spans −21 to +20 relative dB. It is not a loudness meter.
-- Right-click the faceplate for 4x/8x whole-engine FIR oversampling (4x default), interface zoom and About. Latency stays at 65 host samples; both quality paths remain warm for smooth switching.
-- Drag knobs vertically, Shift-drag for fine movement, double-click to reset, or use wheel/arrow keys. The editor is resizable from 75% to 200% with fixed 1U proportions.
+- Right-click the faceplate for stereo control, tone, 4x/8x whole-engine FIR oversampling (4x default), interface zoom and About. Latency stays at 65 host samples; both quality paths remain warm for smooth switching.
+- Drag knobs vertically, Shift-drag for fine movement, double-click to reset, or use wheel/arrow keys. Red encoders require 16 logical pixels per detent (64 with Shift), eight times the previous drag distance. Teal knobs require 360 logical pixels across their full range (1440 with Shift). Ordinary wheel notches move one step; smooth wheel input accumulates without jumping. The editor is resizable from 75% to 200% with fixed 1U proportions.
 
 The LCD shows live indices, make-up gain, IN/OUT/LINK and the clean-cell static feedback knee. It follows the DSP mapping rather than the GUI pack's separate suggested feed-forward mapping. The graph omits colour, detector memory and make-up, as in the supplied layout.
 
