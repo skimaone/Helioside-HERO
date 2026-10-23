@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Linux-c++"
+	tests="14"
+	failures="0"
+	disabled="0"
+	skipped="0"
+	hostname="272b89cff243"
+	time="9"
+	timestamp="2026-10-23T13:37:50"
+	>
+	<testcase name="production_core" classname="production_core" time="1.23536" status="run">
+		<properties/>
+		<system-out>Production vs untouched v10: 96 scenarios; max sample error 0
+</system-out>
+	</testcase>
+	<testcase name="processor" classname="processor" time="1.42394" status="run">
+		<properties/>
+		<system-out>[PASS] Product identity and thirteen stable host parameters
+[PASS] Default values preserve supplied engine calibration and stereo link
+[PASS] All parameter values restore into a new instance
+[PASS] Invalid state safely ignored
+Independent 4x reference wrapper max error: 1.49011612e-08
+[PASS] Plugin matches original core inside independently constructed FIR wrapper
+Independent 8x reference wrapper max error: 1.49011612e-08
+[PASS] Plugin matches original core inside independently constructed FIR wrapper
+[PASS] Whole-loop audio is invariant across 1/127/512-sample host blocks at 4x
+[PASS] Whole-loop audio is invariant across 1/127/512-sample host blocks at 8x
+[PASS] Power / OUT / host bypass is a sample-exact delayed raw copy, case 0
+[PASS] Power / OUT / host bypass is a sample-exact delayed raw copy, case 1
+[PASS] Power / OUT / host bypass is a sample-exact delayed raw copy, case 2
+[PASS] Allocation counter self-check
+[PASS] Mono/stereo layout accepted
+[PASS] Fixed latency is 65 samples at 44100 Hz
+[PASS] Mono/...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</system-out>
+	</testcase>
+	<testcase name="editor" classname="editor" time="0.987495" status="run">
+		<properties/>
+		<system-out>[PASS] Every supplied control image, panel, meter and embedded LCD font decodes
+[PASS] Editor capture hero-width-900
+[PASS] Editor capture hero-width-1200
+[PASS] Editor capture hero-width-1500
+[PASS] Editor capture hero-width-1800
+[PASS] Editor capture hero-width-2400
+[PASS] Endless red control attached
+[PASS] Red control wraps 15 to 0
+[PASS] Red control wraps 0 to 15
+[PASS] Live control attached: threshold
+[PASS] Control updates host parameter: threshold
+[PASS] Live control attached: attack
+[PASS] Control updates host parameter: attack
+[PASS] Live control attached: release
+[PASS] Control updates host parameter: release
+[PASS] Live control attached: shape
+[PASS] Control updates host parameter: shape
+[PASS] Live control attached: gain
+[PASS] Control updates host parameter: gain
+[PASS] Live control attached: mode
+[PASS] Control updates host parameter: mode
+[PASS] Live control attached: meterMode
+[PASS] Control updates host parameter: meterMode
+[PASS] Live control attached: tone
+[PASS] Control updates host param...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</system-out>
+	</testcase>
+	<testcase name="alias_and_cpu" classname="alias_and_cpu" time="0.460786" status="run">
+		<properties/>
+		<system-out>[PASS] Native alias reference is above the numerical noise floor
+[PASS] Actual whole-engine FIR wrapper reduces 15 kHz foldback by at least 20 dB
+4x alias -143.79 dBFS, rejection -89.59 dB; 4.31x realtime (both paths kept warm)
+[PASS] Actual whole-engine FIR wrapper reduces 15 kHz foldback by at least 20 dB
+8x alias -139.54 dBFS, rejection -85.34 dB; 4.79x realtime (both paths kept warm)
+</system-out>
+	</testcase>
+	<testcase name="native_vst3" classname="native_vst3" time="0.0492864" status="run">
+		<properties/>
+		<system-out>[PASS] Built VST3 factory loads exactly one effect
+[PASS] Correct native VST3 product/manufacturer identity
+[PASS] Native instance initializes: 
+[PASS] Native stereo I/O
+[PASS] Native parameter export
+[PASS] Native VST3 reports oversampling latency
+Actual module bypass maximum residual: 0
+[PASS] Actual VST3 POWER-off high-frequency null is sample-exact at 65 samples
+[SKIP] Native window lifecycle requires an X display; Windows CI always runs it.
+</system-out>
+	</testcase>
+	<testcase name="TitanCoreSmoke" classname="TitanCoreSmoke" time="0.037896" status="run">
+		<properties/>
+		<system-out>TitanCore smoke tests passed
+</system-out>
+	</testcase>
+	<testcase name="TitanResearchRegression" classname="TitanResearchRegression" time="0.232933" status="run">
+		<properties/>
+		<system-out>Research regression tests passed
+</system-out>
+	</testcase>
+	<testcase name="TitanV05Behavior" classname="TitanV05Behavior" time="0.267781" status="run">
+		<properties/>
+		<system-out>shape0 0.011308 shape99 0.294193; bass normal 0.013206 fat 0.021847; high normal 0.014269 air 0.018919
+</system-out>
+	</testcase>
+	<testcase name="TitanOversamplingResearch" classname="TitanOversamplingResearch" time="0.0747664" status="run">
+		<properties/>
+		<system-out>Cubic alias at 3k: native 0.076766, oversampled 0.011578, rejection 16.4 dB
+</system-out>
+	</testcase>
+	<testcase name="TitanV06MusicTargets" classname="TitanV06MusicTargets" time="0.275552" status="run">
+		<properties/>
+		<system-out>bass fat/normal=1.69688 high air/normal=1.46922
+</system-out>
+	</testcase>
+	<testcase name="TitanEnvelopeBehavior" classname="TitanEnvelopeBehavior" time="0.03629" status="run">
+		<properties/>
+		<system-out>Fast onset 0.0265651 held 0.0291919 slow held 0.0337882
+</system-out>
+	</testcase>
+	<testcase name="TitanDetectorModelsV08" classname="TitanDetectorModelsV08" time="0.0471279" status="run">
+		<properties/>
+		<system-out>Detector models + block invariance pass
+</system-out>
+	</testcase>
+	<testcase name="TitanFeedbackStabilityV09" classname="TitanFeedbackStabilityV09" time="3.97966" status="run">
+		<properties/>
+		<system-out>144 feedback law/detector/ballistics scenarios evaluated
+</system-out>
+	</testcase>
+	<testcase name="TitanIndependentSidechainsV10" classname="TitanIndependentSidechainsV10" time="0.0218548" status="run">
+		<properties/>
+		<system-out>Independent sidechain / block invariance max diff: 0
+</system-out>
+	</testcase>
+</testsuite>

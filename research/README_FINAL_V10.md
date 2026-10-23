@@ -1,0 +1,3 @@
+# TITAN v1.0 research candidate — CODEX START HERE
+
+Read `docs/FINAL_RESEARCH_FINDINGS_V10.md` first, then the preceding technical docs, source, and manual. This is an experimentally informed *Titan-inspired* DSP **not** a circuit-accurate emulation. Run CMake/CTest to verify standalone engine. In JUCE integration, compile `src/JuceTitanOversampledAdapter.h`, add proper parameter smoothing, host latency/PDC, bypass policy and precise dry/wet latency, investigate 4x/8x alias spectra. Do not release with the included research oversampler without validation. Do not infer exact harmonic phases from musical MP3s.

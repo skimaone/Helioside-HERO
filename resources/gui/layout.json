@@ -1,0 +1,208 @@
+{
+  "canvas_2x": [
+    2400,
+    222
+  ],
+  "window_1x": [
+    1200,
+    111
+  ],
+  "rack": "1U, 19 in x 1.75 in",
+  "controls": {
+    "power": {
+      "type": "toggle",
+      "center": [
+        226,
+        188
+      ],
+      "size": 72,
+      "states": {
+        "off": "switches/switch_left.png",
+        "on": "switches/switch_right.png"
+      }
+    },
+    "lcd": {
+      "type": "screen",
+      "rect": [
+        440,
+        30,
+        200,
+        160
+      ],
+      "native": [
+        160,
+        128
+      ],
+      "note": "draw content with render_lcd.render() then lcd_dotmatrix() (100 x 80 dot grid)"
+    },
+    "vca_colour": {
+      "type": "stepped_knob",
+      "sprite": "knobs/hero_knob_red_strip_256.png",
+      "frames": 16,
+      "center": [
+        800,
+        112
+      ],
+      "size": 88,
+      "detent_deg": 22.5,
+      "endless": true,
+      "position0_deg": 191.25
+    },
+    "parallel_mix": {
+      "type": "stepped_knob",
+      "sprite": "knobs/hero_knob_red_strip_256.png",
+      "frames": 16,
+      "center": [
+        970,
+        112
+      ],
+      "size": 88,
+      "detent_deg": 22.5,
+      "endless": true,
+      "position0_deg": 191.25
+    },
+    "dynamic_colour": {
+      "type": "stepped_knob",
+      "sprite": "knobs/hero_knob_red_strip_256.png",
+      "frames": 16,
+      "center": [
+        1140,
+        112
+      ],
+      "size": 88,
+      "detent_deg": 22.5,
+      "endless": true,
+      "position0_deg": 191.25
+    },
+    "meter": {
+      "type": "led_meter",
+      "rect": [
+        1268,
+        34,
+        775,
+        30
+      ],
+      "segments": 83,
+      "step_db": 0.5,
+      "scale_db": [
+        -21,
+        20
+      ],
+      "first_segment_x": 1283,
+      "pitch": 9,
+      "segment": [
+        7,
+        14
+      ],
+      "render": "tools/build_panel.py meter(lit_fn) - or composite meter_all_off / meter_all_on per segment"
+    },
+    "threshold": {
+      "type": "knob",
+      "sprite": "knobs/hero_knob_teal_strip_256.png",
+      "frames": 128,
+      "center": [
+        1340,
+        128
+      ],
+      "size": 104,
+      "sweep_deg": [
+        -150,
+        150
+      ]
+    },
+    "attack": {
+      "type": "knob",
+      "sprite": "knobs/hero_knob_teal_strip_256.png",
+      "frames": 128,
+      "center": [
+        1497,
+        128
+      ],
+      "size": 104,
+      "sweep_deg": [
+        -150,
+        150
+      ]
+    },
+    "release": {
+      "type": "knob",
+      "sprite": "knobs/hero_knob_teal_strip_256.png",
+      "frames": 128,
+      "center": [
+        1654,
+        128
+      ],
+      "size": 104,
+      "sweep_deg": [
+        -150,
+        150
+      ]
+    },
+    "shape": {
+      "type": "knob",
+      "sprite": "knobs/hero_knob_teal_strip_256.png",
+      "frames": 128,
+      "center": [
+        1811,
+        128
+      ],
+      "size": 104,
+      "sweep_deg": [
+        -150,
+        150
+      ]
+    },
+    "gain": {
+      "type": "knob",
+      "sprite": "knobs/hero_knob_teal_strip_256.png",
+      "frames": 128,
+      "center": [
+        1968,
+        128
+      ],
+      "size": 104,
+      "sweep_deg": [
+        -150,
+        150
+      ]
+    },
+    "mode": {
+      "type": "toggle",
+      "center": [
+        2150,
+        44
+      ],
+      "size": 72,
+      "states": {
+        "link": "switches/switch_left.png",
+        "in": "switches/switch_center.png",
+        "out": "switches/switch_right.png"
+      }
+    },
+    "meter_mode": {
+      "type": "toggle",
+      "center": [
+        2150,
+        108
+      ],
+      "size": 72,
+      "states": {
+        "gr": "switches/switch_left.png",
+        "level": "switches/switch_right.png"
+      }
+    },
+    "tone": {
+      "type": "toggle",
+      "center": [
+        2150,
+        172
+      ],
+      "size": 72,
+      "states": {
+        "fat": "switches/switch_left.png",
+        "normal": "switches/switch_center.png",
+        "air": "switches/switch_right.png"
+      }
+    }
+  }
+}

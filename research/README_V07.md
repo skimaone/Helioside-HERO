@@ -1,0 +1,2 @@
+# TITAN-inspired DSP v0.7
+The main source is `src/TitanCore.h`, updated from v0.6 to decouple detector tracking from attack/release gain-reduction ballistics. A new reproducible envelope-analysis script, JSON measurements, research interpretation, and regression test are included. This is NOT a hardware-calibrated or production-ready emulation. Build tests with `cmake -S . -B build && cmake --build build && ctest --test-dir build --output-on-failure`. For analysis: `python tests/envelope_study_v07.py` (requires numpy, scipy, soundfile with MP3 support).

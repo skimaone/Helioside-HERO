@@ -1,0 +1,201 @@
+{
+  "shape": {
+    "duration_seconds": 22.554081632653062,
+    "section_count": 3,
+    "section_assumption": "equal-duration sections; switch points not verified",
+    "sections": [
+      {
+        "index": 0,
+        "rms_dbfs": -22.192597168475785,
+        "envelope_p10_dbfs": -39.0851862258763,
+        "envelope_p90_dbfs": -17.731175005704017,
+        "envelope_dynamic_range_db": 21.35401122017228
+      },
+      {
+        "index": 1,
+        "rms_dbfs": -28.520339172401176,
+        "envelope_p10_dbfs": -42.241505720905714,
+        "envelope_p90_dbfs": -25.182401712148994,
+        "envelope_dynamic_range_db": 17.059104008756712
+      },
+      {
+        "index": 2,
+        "rms_dbfs": -22.494469637533783,
+        "envelope_p10_dbfs": -38.868582899071484,
+        "envelope_p90_dbfs": -18.229603590917055,
+        "envelope_dynamic_range_db": 20.638979308154433
+      }
+    ],
+    "envelope_correlations": [
+      {
+        "from": 0,
+        "to": 1,
+        "lag_seconds": 0.24,
+        "envelope_correlation": 0.4525514657202929
+      },
+      {
+        "from": 0,
+        "to": 2,
+        "lag_seconds": 0.47000000000000003,
+        "envelope_correlation": 0.504007823836172
+      },
+      {
+        "from": 1,
+        "to": 2,
+        "lag_seconds": 0.24,
+        "envelope_correlation": 0.4051655670094544
+      }
+    ]
+  },
+  "attack": {
+    "duration_seconds": 31.79902494331066,
+    "section_count": 3,
+    "section_assumption": "equal-duration sections; switch points not verified",
+    "sections": [
+      {
+        "index": 0,
+        "rms_dbfs": -31.364102261458857,
+        "envelope_p10_dbfs": -48.586928351690304,
+        "envelope_p90_dbfs": -30.102107145019737,
+        "envelope_dynamic_range_db": 18.484821206670567
+      },
+      {
+        "index": 1,
+        "rms_dbfs": -27.133509401478143,
+        "envelope_p10_dbfs": -48.11185069550601,
+        "envelope_p90_dbfs": -24.181753805951622,
+        "envelope_dynamic_range_db": 23.93009688955438
+      },
+      {
+        "index": 2,
+        "rms_dbfs": -35.15616693108469,
+        "envelope_p10_dbfs": -51.58547055549675,
+        "envelope_p90_dbfs": -31.595402580026676,
+        "envelope_dynamic_range_db": 19.990067975470073
+      }
+    ],
+    "envelope_correlations": [
+      {
+        "from": 0,
+        "to": 1,
+        "lag_seconds": -0.26,
+        "envelope_correlation": 0.2855470419715418
+      },
+      {
+        "from": 0,
+        "to": 2,
+        "lag_seconds": -0.54,
+        "envelope_correlation": 0.19051987122009892
+      },
+      {
+        "from": 1,
+        "to": 2,
+        "lag_seconds": -0.26,
+        "envelope_correlation": 0.3945003610226306
+      }
+    ]
+  },
+  "release": {
+    "duration_seconds": 23.913809523809523,
+    "section_count": 3,
+    "section_assumption": "equal-duration sections; switch points not verified",
+    "sections": [
+      {
+        "index": 0,
+        "rms_dbfs": -21.718838698779116,
+        "envelope_p10_dbfs": -38.50719304198476,
+        "envelope_p90_dbfs": -17.378495386474093,
+        "envelope_dynamic_range_db": 21.128697655510663
+      },
+      {
+        "index": 1,
+        "rms_dbfs": -24.880638004195575,
+        "envelope_p10_dbfs": -45.53013782478821,
+        "envelope_p90_dbfs": -21.562580233524983,
+        "envelope_dynamic_range_db": 23.967557591263233
+      },
+      {
+        "index": 2,
+        "rms_dbfs": -21.935429717305553,
+        "envelope_p10_dbfs": -37.38100603542074,
+        "envelope_p90_dbfs": -18.024146435435576,
+        "envelope_dynamic_range_db": 19.35685959998516
+      }
+    ],
+    "envelope_correlations": [
+      {
+        "from": 0,
+        "to": 1,
+        "lag_seconds": -0.22,
+        "envelope_correlation": 0.3435365181090351
+      },
+      {
+        "from": 0,
+        "to": 2,
+        "lag_seconds": -0.45,
+        "envelope_correlation": 0.4566163976508403
+      },
+      {
+        "from": 1,
+        "to": 2,
+        "lag_seconds": -0.22,
+        "envelope_correlation": 0.3219639941347938
+      }
+    ]
+  },
+  "tone": {
+    "duration_seconds": 36.12873015873016,
+    "section_count": 4,
+    "section_assumption": "equal-duration sections; switch points not verified",
+    "sections": [
+      {
+        "index": 0,
+        "rms_dbfs": -18.427226973259785,
+        "envelope_p10_dbfs": -24.971621776122003,
+        "envelope_p90_dbfs": -15.044573647674383,
+        "envelope_dynamic_range_db": 9.927048128447618
+      },
+      {
+        "index": 1,
+        "rms_dbfs": -17.446460034628938,
+        "envelope_p10_dbfs": -24.189588867081557,
+        "envelope_p90_dbfs": -13.94420867736212,
+        "envelope_dynamic_range_db": 10.245380189719437
+      },
+      {
+        "index": 2,
+        "rms_dbfs": -18.416210146291267,
+        "envelope_p10_dbfs": -24.828338050003794,
+        "envelope_p90_dbfs": -15.0358170568342,
+        "envelope_dynamic_range_db": 9.792520993169592
+      },
+      {
+        "index": 3,
+        "rms_dbfs": -18.40933146841484,
+        "envelope_p10_dbfs": -24.902478858199505,
+        "envelope_p90_dbfs": -15.004376211816252,
+        "envelope_dynamic_range_db": 9.898102646383249
+      }
+    ],
+    "envelope_correlations": [
+      {
+        "from": 0,
+        "to": 2,
+        "lag_seconds": -0.08,
+        "envelope_correlation": 0.9109777533413141
+      },
+      {
+        "from": 0,
+        "to": 1,
+        "lag_seconds": -0.04,
+        "envelope_correlation": 0.9640152401763123
+      },
+      {
+        "from": 2,
+        "to": 3,
+        "lag_seconds": -0.04,
+        "envelope_correlation": 0.8173986874066047
+      }
+    ]
+  }
+}
