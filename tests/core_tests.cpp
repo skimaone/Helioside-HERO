@@ -7,13 +7,14 @@
 #include <vector>
 int main(){
  double error=0.;
- // Same waves, curves, stereo histories and research modes at representative rates.
+ // Preserve zero-colour compression, curves, stereo histories and research modes.
+ // 0.1.3 deliberately changes the two nonzero gain-cell colour paths.
  for(int rate:{44100,48000,96000,192000})for(int scenario=0;scenario<24;++scenario){
   titan::Engine a;original_titan::Engine b;a.prepare(rate,2);b.prepare(rate,2);
   titan::Parameters p;original_titan::Parameters q;
   p.threshold=q.threshold=(scenario*17)%100;p.shape=q.shape=(scenario*31)%100;
   p.attack=q.attack=(scenario*13)%100;p.release=q.release=(scenario*7)%100;
-  p.vcaColor=q.vcaColor=scenario%16;p.dynamicColor=q.dynamicColor=(scenario*3)%16;
+  p.vcaColor=q.vcaColor=0;p.dynamicColor=q.dynamicColor=0;
   p.parallelMix=q.parallelMix=(scenario*5)%16;p.makeupStep=q.makeupStep=scenario%24;
   p.tone=static_cast<titan::Parameters::Tone>(scenario%3-1);q.tone=static_cast<original_titan::Parameters::Tone>(scenario%3-1);
   p.stereoLink=q.stereoLink=scenario%2==0;
@@ -26,6 +27,6 @@ int main(){
   a.process(input,oa,x.size());b.process(input,ob,x.size());
   for(int i=0;i<8192;++i){error=std::max(error,std::abs(double(aa[i])-ba[i]));error=std::max(error,std::abs(double(ab[i])-bb[i]));}
  }
- std::printf("Production vs untouched v10: 96 scenarios; max sample error %.12g\n",error);
+ std::printf("Clean production vs untouched v10: 96 scenarios; max sample error %.12g\n",error);
  return error<2e-6?0:1;
 }

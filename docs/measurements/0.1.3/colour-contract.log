@@ -1,0 +1,76 @@
+[PASS] Dynamic Colour is exactly inactive below compression onset, including the solver floor
+[PASS] Colour activation does not amplify the numerical GR floor
+[PASS] Full VCA Colour has resolved level-matched contrast during compression
+[PASS] Full Dynamic Colour has resolved level-matched contrast during compression
+[PASS] Dynamic waveform expansion increases the existing feedback GR indication
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+Isolated H3 phase cosine -1.000000000
+[PASS] Dynamic H3 opposes Vintage H3 in the coherent model probe
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Dynamic Colour follows the compressor's attack/release history

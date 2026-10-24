@@ -17,13 +17,13 @@ The supplied v10 engine is the starting model. Its regularized feedback law, inp
 
 ## Numerically equivalent CPU work
 
-The reference recomputes a 16-iteration bisection and shape powers in every sample/channel. The production core analytically solves the same monotonic soft-knee feedback equation, including the reference bisection's midpoint grid, and caches parameter/detector coefficients. Stable integer settings retain the supplied output; 96 varied rate/curve/tone/link/detector/feedback scenarios are compared to untouched v10 source. Continuous weights only affect transitions, with the original endpoint behavior retained.
+The reference recomputes a 16-iteration bisection and shape powers in every sample/channel. The production core analytically solves the same monotonic soft-knee feedback equation, including the reference bisection's midpoint grid, and caches parameter/detector coefficients. Version 0.1.3 deliberately refines nonzero VCA/Dynamic colour. With colour off, 96 varied rate/curve/tone/link/detector/feedback scenarios still match untouched v10 source. See RELEASE_0.1.3.md for changed colour behavior and measurements. Continuous weights only affect transitions, with the original endpoint behavior retained.
 
 The two oversampling paths both run during normal playback to avoid a cold detector/envelope when quality changes. Reported CPU measurements therefore include this policy. No sample-rate-dependent control retuning is presented as hardware evidence.
 
 ## Interface
 
-The supplied 2400×222 panel, separately lit red/teal filmstrips, fixed shadows, toggles and glass LED meter are embedded unchanged. The 1200×111 default window scales to 200%. The live LCD renders a 100×80 round-dot grid and follows the engine's actual threshold/shape law. Its knee graph is an explanatory clean static curve, not a prediction of transient colour behavior. The GUI pack's alternative control mappings are not substituted into the DSP.
+The supplied 2400×222 panel, separately lit red/teal filmstrips, fixed shadows, toggles and glass LED meter are embedded unchanged. The 1200×111 default window scales to 200%; 0.1.3 caps legacy oversized preferences once while retaining subsequent deliberate zoom choices. The live LCD renders a 100×80 round-dot grid and follows the engine's actual threshold/shape law. Its knee graph is an explanatory clean static curve, not a prediction of transient colour behavior. The GUI pack's alternative control mappings are not substituted into the DSP.
 
 ## Validation
 

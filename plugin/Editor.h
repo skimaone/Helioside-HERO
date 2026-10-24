@@ -34,7 +34,7 @@ private:
 
 class HeroEditor final : public juce::AudioProcessorEditor,private juce::Timer {
 public:
-    explicit HeroEditor(HeroProcessor&);
+    explicit HeroEditor(HeroProcessor&,const juce::File& settingsDirectory={});
     ~HeroEditor()override;
     void paint(juce::Graphics&)override;
     void resized()override;

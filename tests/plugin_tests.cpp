@@ -63,7 +63,13 @@ static void interactionTests(HeroEditor& e,HeroProcessor& p){
  tone->mouseDown(event(tone));tone->mouseDrag(event(tone,-12));tone->mouseUp(event(tone,-12));check(p.value(11)==1,"Downward toggle drag selects NORMAL");
  set(p,"threshold",45);set(p,"gain",0);p.selectPreferredMode(0);set(p,"vcaColour",0);
 }
-static void editorTests(const File& out){HeroProcessor p;p.prepareToPlay(48000,512);std::unique_ptr<AudioProcessorEditor> base(p.createEditorIfNeeded());auto* e=dynamic_cast<HeroEditor*>(base.get());check(e&&e->assetsValidForTesting(),"Every supplied control image, panel, meter and embedded LCD font decodes");if(!e)return;
+static void editorTests(const File& out){
+ const auto settingsDirectory=out.getChildFile("isolated-preferences");settingsDirectory.createDirectory();
+ PropertiesFile::Options options;options.applicationName="Suntech Audio HERO";options.folderName=settingsDirectory.getFullPathName();options.filenameSuffix="settings";options.osxLibrarySubFolder="Application Support";
+ {PropertiesFile settings(options);settings.setValue("width",2400);settings.removeValue("compactSizingVersion");check(settings.saveIfNeeded(),"Isolated legacy zoom fixture saves successfully");}
+ {HeroProcessor p;HeroEditor e(p,settingsDirectory);check(e.getWidth()==1200&&e.getHeight()==111,"Legacy oversized 200% preference migrates to compact 1200x111 default");e.setSize(1800,167);}
+ {HeroProcessor p;HeroEditor e(p,settingsDirectory);check(e.getWidth()==1800,"An explicit zoom after migration is remembered");e.setSize(1200,111);}
+ HeroProcessor p;p.prepareToPlay(48000,512);std::unique_ptr<AudioProcessorEditor> base(p.createEditorIfNeeded());auto* e=dynamic_cast<HeroEditor*>(base.get());check(e&&e->assetsValidForTesting(),"Every supplied control image, panel, meter and embedded LCD font decodes");if(!e)return;
 #if JUCE_WINDOWS
  e->addToDesktop(0);e->setVisible(true);
 #endif

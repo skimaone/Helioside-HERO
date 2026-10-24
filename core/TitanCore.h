@@ -94,16 +94,24 @@ class Engine {
  }
  double wetSample(double x,Channel& c){
   const double attenuation=dbToLin(-c.gr),u=x*attenuation;
-  const double activity=smooth(c.gr/9.);
+  // Both colour laws act inside the gain cell, at the incoming signal's
+  // working level, then share its attenuation. Shaping only the already
+  // reduced sample suppressed harmonic contrast as GR increased.
+  // Inferred activation: resolve light compression without a hard onset.
+  // The preserved equilibrium solver has a sub-millidecibel midpoint floor.
+  // Exclude one grid quantum from colour activation so numerical floor alone
+  // cannot switch either colour path on below compression onset.
+  const double activeGr=std::max(0.,c.gr-50./65536.);
+  const double activity=-std::expm1(-activeGr/3.);
   // Diode proxy: normalized, gain-preserving small-signal approximation.
   // Attenuation-dependent, odd soft-curvature with opposing third-harmonic sign.
   const double m=p_.vcaColor/15.;
   const double drive=clamp(p_.vintageDrive,1.,5.);
   const double intensity=clamp(p_.vintageStrength,0.,1.)*activity;
   const double norm=drive; // tanh(drive*u)/drive has unity small-signal slope
-  const double bent=std::tanh(drive*u)/norm;
-  const double vintage=u+intensity*(bent-u)+p_.diodeAsymmetry*intensity*u*u/(1.+u*u);
-  double y=(1.-m)*u+m*vintage;
+  const double bent=std::tanh(drive*x)/norm;
+  const double vintage=x+intensity*(bent-x)+p_.diodeAsymmetry*intensity*x*x/(1.+x*x);
+  double cell=(1.-m)*x+m*vintage;
   // Sign of cubic opposite the soft-saturating diode proxy; no color at zero GR.
   // x^3 coefficient >0 creates anti-saturating (peak-expanding) curvature.
   const double color=p_.dynamicColor/15.;
@@ -112,9 +120,10 @@ class Engine {
   const double activation=activity*((1.-clamp(p_.colorRiseWeight,0.,1.))+
                           clamp(p_.colorRiseWeight,0.,1.)*edge);
   // bounded rational cubic: smooth peaks, avoids runaway at high input.
-  const double z=clamp(y,-4.,4.);
+  const double z=clamp(cell,-4.,4.);
   const double nonlinear=z*z*z/(1.+z*z);
-  y+=clamp(p_.colorStrength,0.,1.)*color*activation*nonlinear;
+  cell+=clamp(p_.colorStrength,0.,1.)*color*activation*nonlinear;
+  double y=cell*attenuation;
   // GR-dependent approximate shelves; exact sidechain implementation unknown.
   const double toneActive=smooth(c.gr/12.)*clamp(p_.audioToneDepth/0.20,0.,5.);
   const double lo=c.fat.tick(y),hiBase=c.air.tick(y);

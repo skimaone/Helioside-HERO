@@ -1,0 +1,135 @@
+Start testing: Oct 24 09:40 UTC
+----------------------------------------------------------
+4/15 Testing: editor
+4/15 Test: editor
+Command: "/workspace/hero-build/hero_tests" "editor" "/workspace/hero-build/test-results/gui"
+Directory: /workspace/hero-build
+"editor" start time: Oct 24 09:40 UTC
+Output:
+----------------------------------------------------------
+[PASS] Isolated legacy zoom fixture saves successfully
+[PASS] Legacy oversized 200% preference migrates to compact 1200x111 default
+[PASS] An explicit zoom after migration is remembered
+[PASS] Every supplied control image, panel, meter and embedded LCD font decodes
+[PASS] Red knob ignores a 2-pixel drag
+[PASS] Red detent requires a full 16 pixels
+[PASS] Red knob advances one detent at 16 pixels
+[PASS] One-pixel reversal does not chatter around a red detent
+[PASS] Full reverse detent returns to previous value
+[PASS] One drag produces one balanced host automation gesture
+[PASS] Shift-drag keeps red detents still at 16 pixels
+[PASS] Shift-drag advances one red detent at 64 pixels
+[PASS] Engaging Shift mid-drag does not jump the knob
+[PASS] Slow mouse drag preserves red 15-to-0 wrapping
+[PASS] Double-click resets without nesting host gestures
+[PASS] Tiny trackpad events do not spin the red encoder
+[PASS] An ordinary wheel notch advances one red detent
+[PASS] Teal range requires a 360-pixel full throw
+[PASS] Make-up knob uses the same full throw despite its smaller range
+[PASS] Two-position front Mode selects OUT
+[PASS] Two-position front Mode restores Independent IN
+[PASS] Tone left selects FAT
+[PASS] Tone right selects AIR
+[PASS] Tone down selects NORMAL
+[PASS] NORMAL remains available as the original default
+[PASS] Clicking left throw selects FAT
+[PASS] Clicking right throw selects AIR
+[PASS] Clicking lower throw selects NORMAL
+[PASS] Downward toggle drag selects NORMAL
+[PASS] LCD contains visible parameter readouts: hero-width-900
+[PASS] Editor capture hero-width-900
+[PASS] LCD contains visible parameter readouts: hero-width-1200
+[PASS] Editor capture hero-width-1200
+[PASS] LCD contains visible parameter readouts: hero-width-1500
+[PASS] Editor capture hero-width-1500
+[PASS] LCD contains visible parameter readouts: hero-width-1800
+[PASS] Editor capture hero-width-1800
+[PASS] LCD contains visible parameter readouts: hero-width-2400
+[PASS] Editor capture hero-width-2400
+[PASS] Live LCD high-resolution capture
+[PASS] LCD contains visible parameter readouts: hero-tone-fat
+[PASS] Editor capture hero-tone-fat
+[PASS] LCD contains visible parameter readouts: hero-tone-air
+[PASS] Editor capture hero-tone-air
+[PASS] LCD contains visible parameter readouts: hero-tone-normal
+[PASS] Editor capture hero-tone-normal
+[PASS] LCD contains visible parameter readouts: hero-fast-attack
+[PASS] Editor capture hero-fast-attack
+[PASS] LCD contains visible parameter readouts: hero-slow-attack
+[PASS] Editor capture hero-slow-attack
+[PASS] Attack changes the clean-engine timing trajectory without changing the static knee
+[PASS] LCD contains visible parameter readouts: hero-fast-release
+[PASS] Editor capture hero-fast-release
+[PASS] LCD contains visible parameter readouts: hero-slow-release
+[PASS] Editor capture hero-slow-release
+[PASS] Release changes the falling clean-engine timing trajectory
+[PASS] Timing trajectories stay finite and show attenuation, not invented gain
+Display attack trajectory change 11.0356 dB; release change 1.4298 dB
+[PASS] Endless red control attached
+[PASS] Red control wraps 15 to 0
+[PASS] Red control wraps 0 to 15
+[PASS] Live control attached: threshold
+[PASS] Control updates host parameter: threshold
+[PASS] Live control attached: attack
+[PASS] Control updates host parameter: attack
+[PASS] Live control attached: release
+[PASS] Control updates host parameter: release
+[PASS] Live control attached: shape
+[PASS] Control updates host parameter: shape
+[PASS] Live control attached: gain
+[PASS] Control updates host parameter: gain
+[PASS] Live control attached: mode
+[PASS] Control updates host parameter: mode
+[PASS] Live control attached: meterMode
+[PASS] Control updates host parameter: meterMode
+[PASS] Live control attached: tone
+[PASS] Control updates host parameter: tone
+[PASS] Live control attached: power
+[PASS] Control updates host parameter: power
+[PASS] LCD contains visible parameter readouts: hero-link
+[PASS] Editor capture hero-link
+[PASS] LCD contains visible parameter readouts: hero-in
+[PASS] Editor capture hero-in
+[PASS] LCD contains visible parameter readouts: hero-out
+[PASS] Editor capture hero-out
+[PASS] Editor capture hero-power-off
+[PASS] LCD contains visible parameter readouts: hero-compressing-gr
+[PASS] Editor capture hero-compressing-gr
+[PASS] LCD contains visible parameter readouts: hero-compressing-level
+[PASS] Editor capture hero-compressing-level
+<end of output>
+Test time =   2.80 sec
+----------------------------------------------------------
+Test Passed.
+"editor" end time: Oct 24 09:40 UTC
+"editor" time elapsed: 00:00:02
+----------------------------------------------------------
+
+6/15 Testing: native_vst3
+6/15 Test: native_vst3
+Command: "/workspace/hero-build/hero_vst3_host" "/workspace/hero-build/HERO_artefacts/Release/VST3/Suntech Audio HERO.vst3/Contents/x86_64-linux/../.." "/workspace/hero-build/test-results/native"
+Directory: /workspace/hero-build
+"native_vst3" start time: Oct 24 09:40 UTC
+Output:
+----------------------------------------------------------
+[PASS] Built VST3 factory loads exactly one effect
+[PASS] Correct native VST3 product/manufacturer identity
+[PASS] Native instance initializes: 
+[PASS] Native stereo I/O
+[PASS] Native parameter export
+Native level-matched colour residual: VCA -30.356 dBr, Dynamic -41.158 dBr
+[PASS] Actual VST3 VCA Colour parameter changes waveform beyond a scalar level change
+[PASS] Actual VST3 Dynamic Colour parameter changes waveform beyond a scalar level change
+[PASS] Native VST3 reports oversampling latency
+Actual module bypass maximum residual: 0
+[PASS] Actual VST3 POWER-off high-frequency null is sample-exact at 65 samples
+[SKIP] Native window lifecycle requires an X display; Windows CI always runs it.
+<end of output>
+Test time =   2.12 sec
+----------------------------------------------------------
+Test Passed.
+"native_vst3" end time: Oct 24 09:40 UTC
+"native_vst3" time elapsed: 00:00:02
+----------------------------------------------------------
+
+End testing: Oct 24 09:40 UTC

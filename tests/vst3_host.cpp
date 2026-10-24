@@ -16,10 +16,18 @@ void pump(int ms){auto end=Time::getMillisecondCounter()+ms;do{
 #endif
  Thread::sleep(2);
 }while(Time::getMillisecondCounter()<end);}
+std::vector<float> renderColour(VST3PluginFormat& format,const PluginDescription& desc,int vca,int dynamic){
+ String error;auto p=format.createInstanceFromDescription(desc,48000,512,error);if(!p){check(false,"Colour probe native instance: "+error);return {};}
+ for(auto* q:p->getParameters()){if(q->getName(64)=="VCA Colour")q->setValueNotifyingHost(vca/15.f);if(q->getName(64)=="Dynamic Colour")q->setValueNotifyingHost(dynamic/15.f);}
+ p->prepareToPlay(48000,512);MidiBuffer midi;AudioBuffer<float> warm(2,512);for(int k=0;k<8;++k){warm.clear();p->processBlock(warm,midi);}
+ std::vector<float> result(144000);for(int off=0;off<144000;){int n=jmin(512,144000-off);AudioBuffer<float>b(2,n);for(int i=0;i<n;++i){float x=(float)(.35*std::sin(2*MathConstants<double>::pi*1000*(off+i)/48000.));b.setSample(0,i,x);b.setSample(1,i,x);}p->processBlock(b,midi);for(int i=0;i<n;++i)result[(size_t)(off+i)]=b.getSample(0,i);off+=n;}p->releaseResources();return result;
+}
+double colourDifference(const std::vector<float>& a,const std::vector<float>& b){if(a.empty()||a.size()!=b.size())return -999.;double aa=0,ab=0,bb=0,err=0;for(size_t i=96000;i<a.size();++i){aa+=double(a[i])*a[i];ab+=double(a[i])*b[i];bb+=double(b[i])*b[i];}double gain=ab/jmax(bb,1e-30);for(size_t i=96000;i<a.size();++i){double d=a[i]-gain*b[i];err+=d*d;}return 10*std::log10(jmax(err,1e-30)/jmax(aa,1e-30));}
 int main(int argc,char**argv){ScopedJuceInitialiser_GUI gui;if(argc!=3)return 2;File bundle=File::getCurrentWorkingDirectory().getChildFile(argv[1]),out=File::getCurrentWorkingDirectory().getChildFile(argv[2]);out.createDirectory();
  VST3PluginFormat format;OwnedArray<PluginDescription> types;format.findAllTypesForFile(types,bundle.getFullPathName());check(types.size()==1,"Built VST3 factory loads exactly one effect");if(types.size()!=1)return 1;
  auto& desc=*types[0];check(desc.name=="Suntech Audio HERO"&&desc.manufacturerName=="Suntech Audio"&&!desc.isInstrument,"Correct native VST3 product/manufacturer identity");String error;auto p=format.createInstanceFromDescription(desc,48000,512,error);check(p!=nullptr,"Native instance initializes: "+error);if(!p)return 1;
  check(p->getMainBusNumInputChannels()==2&&p->getMainBusNumOutputChannels()==2,"Native stereo I/O");check(p->getParameters().size()>=13,"Native parameter export");
+ auto clean=renderColour(format,desc,0,0),vintage=renderColour(format,desc,15,0),dynamic=renderColour(format,desc,0,15);double v=colourDifference(clean,vintage),d=colourDifference(clean,dynamic);std::printf("Native level-matched colour residual: VCA %.3f dBr, Dynamic %.3f dBr\n",v,d);check(v>-48.&&v<-10.,"Actual VST3 VCA Colour parameter changes waveform beyond a scalar level change");check(d>-58.&&d<-10.,"Actual VST3 Dynamic Colour parameter changes waveform beyond a scalar level change");
 
  MemoryBlock saved;p->getStateInformation(saved);p->prepareToPlay(48000,512);int latency=p->getLatencySamples();check(latency==65,"Native VST3 reports oversampling latency");
  // Verify the actual dynamically loaded module's POWER bypass, not only a linked processor.

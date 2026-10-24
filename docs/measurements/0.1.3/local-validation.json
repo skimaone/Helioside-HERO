@@ -1,0 +1,21 @@
+{
+  "current_suite_status": {
+    "production_core": "PASS",
+    "colour_contract": "PASS",
+    "processor": "PASS",
+    "editor": "PASS",
+    "alias_and_cpu": "PASS",
+    "native_vst3": "PASS",
+    "TitanCoreSmoke": "PASS",
+    "TitanResearchRegression": "PASS",
+    "TitanV05Behavior": "PASS",
+    "TitanOversamplingResearch": "PASS",
+    "TitanV06MusicTargets": "PASS",
+    "TitanEnvelopeBehavior": "PASS",
+    "TitanDetectorModelsV08": "PASS",
+    "TitanFeedbackStabilityV09": "PASS",
+    "TitanIndependentSidechainsV10": "PASS"
+  },
+  "method": "Full suite plus focused editor/native rerun after isolating preference fixtures; original editor failure was an unwritable home directory in the cloud workspace.",
+  "native_window_lifecycle": "Skipped locally without DISPLAY; Windows CI must exercise it."
+}
