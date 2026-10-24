@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(SuntechHero VERSION 0.1.3 LANGUAGES C CXX)
+project(SuntechHero VERSION 0.1.4 LANGUAGES C CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
