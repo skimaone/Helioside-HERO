@@ -1,0 +1,195 @@
+{
+  "status": "PASS",
+  "revision": "6674d3898faf79cbf7b6975a3a155be9abd47e47",
+  "sha256": "7af22d7a01581fbdf598d2f076d3b4ca42a13635b29e79fee07f88601969ea91",
+  "files": 4,
+  "exports": [
+    "ExitDll",
+    "GetPluginFactory",
+    "InitDll"
+  ],
+  "product": "Suntech Audio HERO",
+  "version": "0.1.3",
+  "manufacturer": "Suntech Audio",
+  "class_ids": [
+    "ABCDEF011234ABCD536E74634865726F",
+    "ABCDEF019182FAEB536E74634865726F",
+    "ABCDEF01C0DEF00D536E74634865726F"
+  ],
+  "runner": "windows-2022",
+  "compiler": "MSVC x64 Release",
+  "juce": "8.0.4",
+  "workflow_run": "https://github.com/skimaone/Helioside-HERO/actions/runs/40083175534",
+  "windows_ctest": {
+    "tests": 15,
+    "failures": 0,
+    "skipped": 0,
+    "suites": [
+      {
+        "name": "production_core",
+        "classname": "production_core",
+        "time": "0.790882",
+        "status": "run"
+      },
+      {
+        "name": "colour_contract",
+        "classname": "colour_contract",
+        "time": "2.53715",
+        "status": "run"
+      },
+      {
+        "name": "processor",
+        "classname": "processor",
+        "time": "1.65551",
+        "status": "run"
+      },
+      {
+        "name": "editor",
+        "classname": "editor",
+        "time": "4.03858",
+        "status": "run"
+      },
+      {
+        "name": "alias_and_cpu",
+        "classname": "alias_and_cpu",
+        "time": "0.527561",
+        "status": "run"
+      },
+      {
+        "name": "native_vst3",
+        "classname": "native_vst3",
+        "time": "6.57364",
+        "status": "run"
+      },
+      {
+        "name": "TitanCoreSmoke",
+        "classname": "TitanCoreSmoke",
+        "time": "0.0254123",
+        "status": "run"
+      },
+      {
+        "name": "TitanResearchRegression",
+        "classname": "TitanResearchRegression",
+        "time": "0.137313",
+        "status": "run"
+      },
+      {
+        "name": "TitanV05Behavior",
+        "classname": "TitanV05Behavior",
+        "time": "0.140998",
+        "status": "run"
+      },
+      {
+        "name": "TitanOversamplingResearch",
+        "classname": "TitanOversamplingResearch",
+        "time": "0.0691316",
+        "status": "run"
+      },
+      {
+        "name": "TitanV06MusicTargets",
+        "classname": "TitanV06MusicTargets",
+        "time": "0.142786",
+        "status": "run"
+      },
+      {
+        "name": "TitanEnvelopeBehavior",
+        "classname": "TitanEnvelopeBehavior",
+        "time": "0.0276722",
+        "status": "run"
+      },
+      {
+        "name": "TitanDetectorModelsV08",
+        "classname": "TitanDetectorModelsV08",
+        "time": "0.0804474",
+        "status": "run"
+      },
+      {
+        "name": "TitanFeedbackStabilityV09",
+        "classname": "TitanFeedbackStabilityV09",
+        "time": "2.97797",
+        "status": "run"
+      },
+      {
+        "name": "TitanIndependentSidechainsV10",
+        "classname": "TitanIndependentSidechainsV10",
+        "time": "0.0164068",
+        "status": "run"
+      }
+    ]
+  },
+  "reported_latency_samples": 65,
+  "host_parameter_count": 13,
+  "clean_reference_cases": 96,
+  "clean_reference_max_sample_error": 0,
+  "native_colour_level_matched_residual_dbr": {
+    "vca": -30.356,
+    "dynamic": -41.158
+  },
+  "default_logical_editor_size": [
+    1200,
+    111
+  ],
+  "legacy_oversized_zoom_migration": "one-time cap at 1200, retain smaller sizes and subsequent chosen zooms",
+  "embedded_assets": [
+    "faceplate.png",
+    "faceplate_1x.png",
+    "hero_knob_red_strip.png",
+    "hero_knob_teal_strip.png",
+    "hero_toggle_strip.png",
+    "led_lime_off.png",
+    "led_lime_on.png",
+    "led_orange_off.png",
+    "led_orange_on.png",
+    "led_red_off.png",
+    "led_red_on.png",
+    "meter_window_bg.png",
+    "DejaVuSansMono.ttf"
+  ],
+  "artifacts": [
+    {
+      "id": 12556031867,
+      "node_id": "MDg6QXJ0aWZhY3QxMjU1NjAzMTg2Nw==",
+      "name": "SuntechAudioHERO-0.1.3-Windows-x64-VST3",
+      "size_in_bytes": 7397090,
+      "url": "https://api.github.com/repos/skimaone/Helioside-HERO/actions/artifacts/12556031867",
+      "archive_download_url": "https://api.github.com/repos/skimaone/Helioside-HERO/actions/artifacts/12556031867/zip",
+      "expired": false,
+      "digest": "sha256:bb436d679f32ff0eef05240ac23a3a651b1e221b6b90dc590df0c6c91691e14f",
+      "created_at": "2026-10-24T09:48:48Z",
+      "updated_at": "2026-10-24T09:48:48Z",
+      "expires_at": "2026-11-23T09:48:47Z",
+      "workflow_run": {
+        "id": 40083175534,
+        "repository_id": 1431065210,
+        "head_repository_id": 1431065210,
+        "head_branch": "main",
+        "head_sha": "6674d3898faf79cbf7b6975a3a155be9abd47e47"
+      }
+    },
+    {
+      "id": 12555328851,
+      "node_id": "MDg6QXJ0aWZhY3QxMjU1NTMyODg1MQ==",
+      "name": "SuntechAudioHERO-0.1.3-Tests-and-GUI",
+      "size_in_bytes": 6364163,
+      "url": "https://api.github.com/repos/skimaone/Helioside-HERO/actions/artifacts/12555328851",
+      "archive_download_url": "https://api.github.com/repos/skimaone/Helioside-HERO/actions/artifacts/12555328851/zip",
+      "expired": false,
+      "digest": "sha256:d22eaf649d11316889dd5eedae28c1c0580f8801290b8cce9f6eb3341668f770",
+      "created_at": "2026-10-24T09:48:50Z",
+      "updated_at": "2026-10-24T09:48:50Z",
+      "expires_at": "2026-11-23T09:48:49Z",
+      "workflow_run": {
+        "id": 40083175534,
+        "repository_id": 1431065210,
+        "head_repository_id": 1431065210,
+        "head_branch": "main",
+        "head_sha": "6674d3898faf79cbf7b6975a3a155be9abd47e47"
+      }
+    }
+  ],
+  "limitations": [
+    "Incoming gain-cell reference and activation remain engineering hypotheses, not fitted hardware measurements.",
+    "Matched-GR spectra are core probes; native VST3 contrast probes remove scalar gain but do not independently match feedback GR.",
+    "FL Studio itself is not installed on the Windows runner."
+  ]
+}

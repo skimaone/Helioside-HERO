@@ -1,0 +1,465 @@
+Start testing: Oct 24 09:48 Coordinated Universal Time
+----------------------------------------------------------
+1/15 Testing: production_core
+1/15 Test: production_core
+Command: "D:/a/Helioside-HERO/Helioside-HERO/build/Release/hero_core_tests.exe"
+Directory: D:/a/Helioside-HERO/Helioside-HERO/build
+"production_core" start time: Oct 24 09:48 Coordinated Universal Time
+Output:
+----------------------------------------------------------
+Clean production vs untouched v10: 96 scenarios; max sample error 0
+<end of output>
+Test time =   0.79 sec
+----------------------------------------------------------
+Test Passed.
+"production_core" end time: Oct 24 09:48 Coordinated Universal Time
+"production_core" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/15 Testing: colour_contract
+2/15 Test: colour_contract
+Command: "D:/a/Helioside-HERO/Helioside-HERO/build/Release/hero_colour_tests.exe"
+Directory: D:/a/Helioside-HERO/Helioside-HERO/build
+"colour_contract" start time: Oct 24 09:48 Coordinated Universal Time
+Output:
+----------------------------------------------------------
+[PASS] Dynamic Colour is exactly inactive below compression onset, including the solver floor
+[PASS] Colour activation does not amplify the numerical GR floor
+[PASS] Full VCA Colour has resolved level-matched contrast during compression
+[PASS] Full Dynamic Colour has resolved level-matched contrast during compression
+[PASS] Dynamic waveform expansion increases the existing feedback GR indication
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+Isolated H3 phase cosine -1.000000000
+[PASS] Dynamic H3 opposes Vintage H3 in the coherent model probe
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Combined colour endpoints stay finite for hot bursts and supported rates
+[PASS] Dynamic Colour follows the compressor's attack/release history
+<end of output>
+Test time =   2.54 sec
+----------------------------------------------------------
+Test Passed.
+"colour_contract" end time: Oct 24 09:48 Coordinated Universal Time
+"colour_contract" time elapsed: 00:00:02
+----------------------------------------------------------
+
+3/15 Testing: processor
+3/15 Test: processor
+Command: "D:/a/Helioside-HERO/Helioside-HERO/build/Release/hero_tests.exe" "processor" "D:/a/Helioside-HERO/Helioside-HERO/build/test-results/processor"
+Directory: D:/a/Helioside-HERO/Helioside-HERO/build
+"processor" start time: Oct 24 09:48 Coordinated Universal Time
+Output:
+----------------------------------------------------------
+[PASS] Product identity and thirteen stable host parameters
+[PASS] Default values preserve supplied engine calibration and stereo link
+[PASS] All parameter values restore into a new instance
+[PASS] Invalid state safely ignored
+[PASS] OUT state remembers independent stereo operation across new-instance recall
+[PASS] Stereo preference can change in menu while OUT stays bypassed
+[PASS] Front IN restores the selected stereo preference
+Independent 4x reference wrapper max error: 1.49011612e-08
+[PASS] Plugin matches original core inside independently constructed FIR wrapper
+Independent 8x reference wrapper max error: 1.49011612e-08
+[PASS] Plugin matches original core inside independently constructed FIR wrapper
+[PASS] Whole-loop audio is invariant across 1/127/512-sample host blocks at 4x
+[PASS] Whole-loop audio is invariant across 1/127/512-sample host blocks at 8x
+[PASS] Power / OUT / host bypass is a sample-exact delayed raw copy, case 0
+[PASS] Power / OUT / host bypass is a sample-exact delayed raw copy, case 1
+[PASS] Power / OUT / host bypass is a sample-exact delayed raw copy, case 2
+[PASS] Allocation counter self-check
+[PASS] Mono/stereo layout accepted
+[PASS] Fixed latency is 65 samples at 44100 Hz
+[PASS] Mono/stereo layout accepted
+[PASS] Fixed latency is 65 samples at 48000 Hz
+[PASS] Mono/stereo layout accepted
+[PASS] Fixed latency is 65 samples at 96000 Hz
+[PASS] Mono/stereo layout accepted
+[PASS] Fixed latency is 65 samples at 192000 Hz
+[PASS] Mono/stereo layout accepted
+[PASS] Fixed latency is 65 samples at 44100 Hz
+[PASS] Mono/stereo layout accepted
+[PASS] Fixed latency is 65 samples at 48000 Hz
+[PASS] Mono/stereo layout accepted
+[PASS] Fixed latency is 65 samples at 96000 Hz
+[PASS] Mono/stereo layout accepted
+[PASS] Fixed latency is 65 samples at 192000 Hz
+[PASS] Rates, automation, mono/stereo, oversized/short buffers and NaN input stay finite
+[PASS] No C++ heap allocation during prepared audio callback or oversampling/parameter transitions
+<end of output>
+Test time =   1.66 sec
+----------------------------------------------------------
+Test Passed.
+"processor" end time: Oct 24 09:48 Coordinated Universal Time
+"processor" time elapsed: 00:00:01
+----------------------------------------------------------
+
+4/15 Testing: editor
+4/15 Test: editor
+Command: "D:/a/Helioside-HERO/Helioside-HERO/build/Release/hero_tests.exe" "editor" "D:/a/Helioside-HERO/Helioside-HERO/build/test-results/gui"
+Directory: D:/a/Helioside-HERO/Helioside-HERO/build
+"editor" start time: Oct 24 09:48 Coordinated Universal Time
+Output:
+----------------------------------------------------------
+[PASS] Isolated legacy zoom fixture saves successfully
+[PASS] Legacy oversized 200% preference migrates to compact 1200x111 default
+[PASS] An explicit zoom after migration is remembered
+[PASS] Every supplied control image, panel, meter and embedded LCD font decodes
+[PASS] Red knob ignores a 2-pixel drag
+[PASS] Red detent requires a full 16 pixels
+[PASS] Red knob advances one detent at 16 pixels
+[PASS] One-pixel reversal does not chatter around a red detent
+[PASS] Full reverse detent returns to previous value
+[PASS] One drag produces one balanced host automation gesture
+[PASS] Shift-drag keeps red detents still at 16 pixels
+[PASS] Shift-drag advances one red detent at 64 pixels
+[PASS] Engaging Shift mid-drag does not jump the knob
+[PASS] Slow mouse drag preserves red 15-to-0 wrapping
+[PASS] Double-click resets without nesting host gestures
+[PASS] Tiny trackpad events do not spin the red encoder
+[PASS] An ordinary wheel notch advances one red detent
+[PASS] Teal range requires a 360-pixel full throw
+[PASS] Make-up knob uses the same full throw despite its smaller range
+[PASS] Two-position front Mode selects OUT
+[PASS] Two-position front Mode restores Independent IN
+[PASS] Tone left selects FAT
+[PASS] Tone right selects AIR
+[PASS] Tone down selects NORMAL
+[PASS] NORMAL remains available as the original default
+[PASS] Clicking left throw selects FAT
+[PASS] Clicking right throw selects AIR
+[PASS] Clicking lower throw selects NORMAL
+[PASS] Downward toggle drag selects NORMAL
+[PASS] LCD contains visible parameter readouts: hero-width-900
+[PASS] Editor capture hero-width-900
+[PASS] LCD contains visible parameter readouts: hero-width-1200
+[PASS] Editor capture hero-width-1200
+[PASS] LCD contains visible parameter readouts: hero-width-1500
+[PASS] Editor capture hero-width-1500
+[PASS] LCD contains visible parameter readouts: hero-width-1800
+[PASS] Editor capture hero-width-1800
+[PASS] LCD contains visible parameter readouts: hero-width-2400
+[PASS] Editor capture hero-width-2400
+[PASS] Live LCD high-resolution capture
+[PASS] LCD contains visible parameter readouts: hero-tone-fat
+[PASS] Editor capture hero-tone-fat
+[PASS] LCD contains visible parameter readouts: hero-tone-air
+[PASS] Editor capture hero-tone-air
+[PASS] LCD contains visible parameter readouts: hero-tone-normal
+[PASS] Editor capture hero-tone-normal
+[PASS] LCD contains visible parameter readouts: hero-fast-attack
+[PASS] Editor capture hero-fast-attack
+[PASS] LCD contains visible parameter readouts: hero-slow-attack
+[PASS] Editor capture hero-slow-attack
+[PASS] Attack changes the clean-engine timing trajectory without changing the static knee
+[PASS] LCD contains visible parameter readouts: hero-fast-release
+[PASS] Editor capture hero-fast-release
+[PASS] LCD contains visible parameter readouts: hero-slow-release
+[PASS] Editor capture hero-slow-release
+[PASS] Release changes the falling clean-engine timing trajectory
+[PASS] Timing trajectories stay finite and show attenuation, not invented gain
+Display attack trajectory change 11.0356 dB; release change 1.4298 dB
+[PASS] Endless red control attached
+[PASS] Red control wraps 15 to 0
+[PASS] Red control wraps 0 to 15
+[PASS] Live control attached: threshold
+[PASS] Control updates host parameter: threshold
+[PASS] Live control attached: attack
+[PASS] Control updates host parameter: attack
+[PASS] Live control attached: release
+[PASS] Control updates host parameter: release
+[PASS] Live control attached: shape
+[PASS] Control updates host parameter: shape
+[PASS] Live control attached: gain
+[PASS] Control updates host parameter: gain
+[PASS] Live control attached: mode
+[PASS] Control updates host parameter: mode
+[PASS] Live control attached: meterMode
+[PASS] Control updates host parameter: meterMode
+[PASS] Live control attached: tone
+[PASS] Control updates host parameter: tone
+[PASS] Live control attached: power
+[PASS] Control updates host parameter: power
+[PASS] LCD contains visible parameter readouts: hero-link
+[PASS] Editor capture hero-link
+[PASS] LCD contains visible parameter readouts: hero-in
+[PASS] Editor capture hero-in
+[PASS] LCD contains visible parameter readouts: hero-out
+[PASS] Editor capture hero-out
+[PASS] Editor capture hero-power-off
+[PASS] LCD contains visible parameter readouts: hero-compressing-gr
+[PASS] Editor capture hero-compressing-gr
+[PASS] LCD contains visible parameter readouts: hero-compressing-level
+[PASS] Editor capture hero-compressing-level
+<end of output>
+Test time =   4.04 sec
+----------------------------------------------------------
+Test Passed.
+"editor" end time: Oct 24 09:48 Coordinated Universal Time
+"editor" time elapsed: 00:00:04
+----------------------------------------------------------
+
+5/15 Testing: alias_and_cpu
+5/15 Test: alias_and_cpu
+Command: "D:/a/Helioside-HERO/Helioside-HERO/build/Release/hero_tests.exe" "analysis" "D:/a/Helioside-HERO/Helioside-HERO/build/test-results/analysis"
+Directory: D:/a/Helioside-HERO/Helioside-HERO/build
+"alias_and_cpu" start time: Oct 24 09:48 Coordinated Universal Time
+Output:
+----------------------------------------------------------
+[PASS] Native alias reference is above the numerical noise floor
+[PASS] Actual whole-engine FIR wrapper reduces 15 kHz foldback by at least 20 dB
+4x alias -108.06 dBFS, rejection -73.03 dB; 4.05x realtime (both paths kept warm)
+[PASS] Actual whole-engine FIR wrapper reduces 15 kHz foldback by at least 20 dB
+8x alias -118.71 dBFS, rejection -83.68 dB; 4.02x realtime (both paths kept warm)
+<end of output>
+Test time =   0.53 sec
+----------------------------------------------------------
+Test Passed.
+"alias_and_cpu" end time: Oct 24 09:48 Coordinated Universal Time
+"alias_and_cpu" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/15 Testing: native_vst3
+6/15 Test: native_vst3
+Command: "D:/a/Helioside-HERO/Helioside-HERO/build/Release/hero_vst3_host.exe" "D:/a/Helioside-HERO/Helioside-HERO/build/HERO_artefacts/Release/VST3/Suntech Audio HERO.vst3/Contents/x86_64-win/../.." "D:/a/Helioside-HERO/Helioside-HERO/build/test-results/native"
+Directory: D:/a/Helioside-HERO/Helioside-HERO/build
+"native_vst3" start time: Oct 24 09:48 Coordinated Universal Time
+Output:
+----------------------------------------------------------
+[PASS] Built VST3 factory loads exactly one effect
+[PASS] Correct native VST3 product/manufacturer identity
+[PASS] Native instance initializes: 
+[PASS] Native stereo I/O
+[PASS] Native parameter export
+Native level-matched colour residual: VCA -30.356 dBr, Dynamic -41.158 dBr
+[PASS] Actual VST3 VCA Colour parameter changes waveform beyond a scalar level change
+[PASS] Actual VST3 Dynamic Colour parameter changes waveform beyond a scalar level change
+[PASS] Native VST3 reports oversampling latency
+Actual module bypass maximum residual: 0
+[PASS] Actual VST3 POWER-off high-frequency null is sample-exact at 65 samples
+[PASS] Native editor open 1
+[PASS] Native GUI paints during live playback and automation
+[PASS] Native VST3 screenshot
+[PASS] Project recall/reopening preserves latency
+[PASS] Native editor open 2
+[PASS] Native GUI paints during live playback and automation
+[PASS] Project recall/reopening preserves latency
+[PASS] Native editor open 3
+[PASS] Native GUI paints during live playback and automation
+[PASS] Project recall/reopening preserves latency
+<end of output>
+Test time =   6.57 sec
+----------------------------------------------------------
+Test Passed.
+"native_vst3" end time: Oct 24 09:48 Coordinated Universal Time
+"native_vst3" time elapsed: 00:00:06
+----------------------------------------------------------
+
+7/15 Testing: TitanCoreSmoke
+7/15 Test: TitanCoreSmoke
+Command: "D:/a/Helioside-HERO/Helioside-HERO/build/research/Release/titan_core_test.exe"
+Directory: D:/a/Helioside-HERO/Helioside-HERO/build/research
+"TitanCoreSmoke" start time: Oct 24 09:48 Coordinated Universal Time
+Output:
+----------------------------------------------------------
+TitanCore smoke tests passed
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"TitanCoreSmoke" end time: Oct 24 09:48 Coordinated Universal Time
+"TitanCoreSmoke" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/15 Testing: TitanResearchRegression
+8/15 Test: TitanResearchRegression
+Command: "D:/a/Helioside-HERO/Helioside-HERO/build/research/Release/titan_research_test.exe"
+Directory: D:/a/Helioside-HERO/Helioside-HERO/build/research
+"TitanResearchRegression" start time: Oct 24 09:48 Coordinated Universal Time
+Output:
+----------------------------------------------------------
+Research regression tests passed
+<end of output>
+Test time =   0.14 sec
+----------------------------------------------------------
+Test Passed.
+"TitanResearchRegression" end time: Oct 24 09:48 Coordinated Universal Time
+"TitanResearchRegression" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/15 Testing: TitanV05Behavior
+9/15 Test: TitanV05Behavior
+Command: "D:/a/Helioside-HERO/Helioside-HERO/build/research/Release/titan_v05_test.exe"
+Directory: D:/a/Helioside-HERO/Helioside-HERO/build/research
+"TitanV05Behavior" start time: Oct 24 09:48 Coordinated Universal Time
+Output:
+----------------------------------------------------------
+shape0 0.011308 shape99 0.294193; bass normal 0.013206 fat 0.021847; high normal 0.014269 air 0.018919
+<end of output>
+Test time =   0.14 sec
+----------------------------------------------------------
+Test Passed.
+"TitanV05Behavior" end time: Oct 24 09:48 Coordinated Universal Time
+"TitanV05Behavior" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/15 Testing: TitanOversamplingResearch
+10/15 Test: TitanOversamplingResearch
+Command: "D:/a/Helioside-HERO/Helioside-HERO/build/research/Release/titan_oversampling_test.exe"
+Directory: D:/a/Helioside-HERO/Helioside-HERO/build/research
+"TitanOversamplingResearch" start time: Oct 24 09:48 Coordinated Universal Time
+Output:
+----------------------------------------------------------
+Cubic alias at 3k: native 0.076766, oversampled 0.011578, rejection 16.4 dB
+<end of output>
+Test time =   0.07 sec
+----------------------------------------------------------
+Test Passed.
+"TitanOversamplingResearch" end time: Oct 24 09:48 Coordinated Universal Time
+"TitanOversamplingResearch" time elapsed: 00:00:00
+----------------------------------------------------------
+
+11/15 Testing: TitanV06MusicTargets
+11/15 Test: TitanV06MusicTargets
+Command: "D:/a/Helioside-HERO/Helioside-HERO/build/research/Release/titan_v06_test.exe"
+Directory: D:/a/Helioside-HERO/Helioside-HERO/build/research
+"TitanV06MusicTargets" start time: Oct 24 09:48 Coordinated Universal Time
+Output:
+----------------------------------------------------------
+bass fat/normal=1.69688 high air/normal=1.46922
+<end of output>
+Test time =   0.14 sec
+----------------------------------------------------------
+Test Passed.
+"TitanV06MusicTargets" end time: Oct 24 09:48 Coordinated Universal Time
+"TitanV06MusicTargets" time elapsed: 00:00:00
+----------------------------------------------------------
+
+12/15 Testing: TitanEnvelopeBehavior
+12/15 Test: TitanEnvelopeBehavior
+Command: "D:/a/Helioside-HERO/Helioside-HERO/build/research/Release/titan_envelope_test.exe"
+Directory: D:/a/Helioside-HERO/Helioside-HERO/build/research
+"TitanEnvelopeBehavior" start time: Oct 24 09:48 Coordinated Universal Time
+Output:
+----------------------------------------------------------
+Fast onset 0.0265651 held 0.0291919 slow held 0.0337882
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"TitanEnvelopeBehavior" end time: Oct 24 09:48 Coordinated Universal Time
+"TitanEnvelopeBehavior" time elapsed: 00:00:00
+----------------------------------------------------------
+
+13/15 Testing: TitanDetectorModelsV08
+13/15 Test: TitanDetectorModelsV08
+Command: "D:/a/Helioside-HERO/Helioside-HERO/build/research/Release/titan_detectors_v08.exe"
+Directory: D:/a/Helioside-HERO/Helioside-HERO/build/research
+"TitanDetectorModelsV08" start time: Oct 24 09:48 Coordinated Universal Time
+Output:
+----------------------------------------------------------
+Detector models + block invariance pass
+<end of output>
+Test time =   0.08 sec
+----------------------------------------------------------
+Test Passed.
+"TitanDetectorModelsV08" end time: Oct 24 09:48 Coordinated Universal Time
+"TitanDetectorModelsV08" time elapsed: 00:00:00
+----------------------------------------------------------
+
+14/15 Testing: TitanFeedbackStabilityV09
+14/15 Test: TitanFeedbackStabilityV09
+Command: "D:/a/Helioside-HERO/Helioside-HERO/build/research/Release/titan_stability_v09.exe" "D:/a/Helioside-HERO/Helioside-HERO/build/research/stability_metrics_v09.csv"
+Directory: D:/a/Helioside-HERO/Helioside-HERO/build/research
+"TitanFeedbackStabilityV09" start time: Oct 24 09:48 Coordinated Universal Time
+Output:
+----------------------------------------------------------
+144 feedback law/detector/ballistics scenarios evaluated
+<end of output>
+Test time =   2.98 sec
+----------------------------------------------------------
+Test Passed.
+"TitanFeedbackStabilityV09" end time: Oct 24 09:48 Coordinated Universal Time
+"TitanFeedbackStabilityV09" time elapsed: 00:00:02
+----------------------------------------------------------
+
+15/15 Testing: TitanIndependentSidechainsV10
+15/15 Test: TitanIndependentSidechainsV10
+Command: "D:/a/Helioside-HERO/Helioside-HERO/build/research/Release/titan_sidechain_v10.exe"
+Directory: D:/a/Helioside-HERO/Helioside-HERO/build/research
+"TitanIndependentSidechainsV10" start time: Oct 24 09:48 Coordinated Universal Time
+Output:
+----------------------------------------------------------
+Independent sidechain / block invariance max diff: 0
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"TitanIndependentSidechainsV10" end time: Oct 24 09:48 Coordinated Universal Time
+"TitanIndependentSidechainsV10" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 24 09:48 Coordinated Universal Time

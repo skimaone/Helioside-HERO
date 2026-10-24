@@ -2,13 +2,13 @@
 
 Windows x64 VST3 feedback compressor built from the supplied Titan research v10 engine, with the supplied Suntech Audio HERO rack GUI. This is an independent Titan-inspired software model, not a measured circuit-identical or manufacturer-endorsed emulation.
 
-**Windows x64 Release 0.1.2: verified.** [Download the complete VST3](https://github.com/skimaone/Helioside-HERO/actions/runs/39985144107/artifacts/12514798226) · [Tests and GUI captures](https://github.com/skimaone/Helioside-HERO/actions/runs/39985144107/artifacts/12515556885) · [Build report](docs/RELEASE_0.1.2.md)
+**Windows x64 Release 0.1.3: verified.** [Download the complete VST3](https://github.com/skimaone/Helioside-HERO/actions/runs/40083175534/artifacts/12556031867) · [Tests and GUI captures](https://github.com/skimaone/Helioside-HERO/actions/runs/40083175534/artifacts/12555328851) · [Build report and colour measurements](docs/RELEASE_0.1.3.md)
 
 ![Suntech Audio HERO Windows interface](docs/HERO.png)
 
 ## Install
 
-Download the Windows VST3 artifact from a successful [Actions build](https://github.com/skimaone/Helioside-HERO/actions). Extract the artifact and its inner `SuntechAudioHERO-0.1.2-Windows-x64-VST3.zip`. Close FL Studio, copy the complete `Suntech Audio HERO.vst3` folder to `C:\Program Files\Common Files\VST3`, keeping `Contents` intact, then rescan in Plugin Manager. The ZIP includes checksums and a per-file manifest.
+Download the Windows VST3 artifact from a successful [Actions build](https://github.com/skimaone/Helioside-HERO/actions). Extract the artifact and its inner `SuntechAudioHERO-0.1.3-Windows-x64-VST3.zip`. Close FL Studio, copy the complete `Suntech Audio HERO.vst3` folder to `C:\Program Files\Common Files\VST3`, keeping `Contents` intact, then rescan in Plugin Manager. The ZIP includes checksums and a per-file manifest.
 
 ## Controls
 

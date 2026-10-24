@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Win32-MSBuild"
+	tests="15"
+	failures="0"
+	disabled="0"
+	skipped="0"
+	hostname="runnervmgnbhw"
+	time="19"
+	timestamp="2026-10-24T09:48:24"
+	>
+	<testcase name="production_core" classname="production_core" time="0.790882" status="run">
+		<properties/>
+		<system-out>Clean production vs untouched v10: 96 scenarios; max sample error 0
+</system-out>
+	</testcase>
+	<testcase name="colour_contract" classname="colour_contract" time="2.53715" status="run">
+		<properties/>
+		<system-out>[PASS] Dynamic Colour is exactly inactive below compression onset, including the solver floor
+[PASS] Colour activation does not amplify the numerical GR floor
+[PASS] Full VCA Colour has resolved level-matched contrast during compression
+[PASS] Full Dynamic Colour has resolved level-matched contrast during compression
+[PASS] Dynamic waveform expansion increases the existing feedback GR indication
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H3 contrast
+[PASS] Dynamic 16-step range increases isolated H3 contrast
+[PASS] VCA 16-step range increases isolated H...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</system-out>
+	</testcase>
+	<testcase name="processor" classname="processor" time="1.65551" status="run">
+		<properties/>
+		<system-out>[PASS] Product identity and thirteen stable host parameters
+[PASS] Default values preserve supplied engine calibration and stereo link
+[PASS] All parameter values restore into a new instance
+[PASS] Invalid state safely ignored
+[PASS] OUT state remembers independent stereo operation across new-instance recall
+[PASS] Stereo preference can change in menu while OUT stays bypassed
+[PASS] Front IN restores the selected stereo preference
+Independent 4x reference wrapper max error: 1.49011612e-08
+[PASS] Plugin matches original core inside independently constructed FIR wrapper
+Independent 8x reference wrapper max error: 1.49011612e-08
+[PASS] Plugin matches original core inside independently constructed FIR wrapper
+[PASS] Whole-loop audio is invariant across 1/127/512-sample host blocks at 4x
+[PASS] Whole-loop audio is invariant across 1/127/512-sample host blocks at 8x
+[PASS] Power / OUT / host bypass is a sample-exact delayed raw copy, case 0
+[PASS] Power / OUT / host bypass is a sample-exact delayed raw copy, case 1...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</system-out>
+	</testcase>
+	<testcase name="editor" classname="editor" time="4.03858" status="run">
+		<properties/>
+		<system-out>[PASS] Isolated legacy zoom fixture saves successfully
+[PASS] Legacy oversized 200% preference migrates to compact 1200x111 default
+[PASS] An explicit zoom after migration is remembered
+[PASS] Every supplied control image, panel, meter and embedded LCD font decodes
+[PASS] Red knob ignores a 2-pixel drag
+[PASS] Red detent requires a full 16 pixels
+[PASS] Red knob advances one detent at 16 pixels
+[PASS] One-pixel reversal does not chatter around a red detent
+[PASS] Full reverse detent returns to previous value
+[PASS] One drag produces one balanced host automation gesture
+[PASS] Shift-drag keeps red detents still at 16 pixels
+[PASS] Shift-drag advances one red detent at 64 pixels
+[PASS] Engaging Shift mid-drag does not jump the knob
+[PASS] Slow mouse drag preserves red 15-to-0 wrapping
+[PASS] Double-click resets without nesting host gestures
+[PASS] Tiny trackpad events do not spin the red encoder
+[PASS] An ordinary wheel notch advances one red detent
+[PASS] Teal range requires a 360-pixel full throw
+[PASS] Make-...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</system-out>
+	</testcase>
+	<testcase name="alias_and_cpu" classname="alias_and_cpu" time="0.527561" status="run">
+		<properties/>
+		<system-out>[PASS] Native alias reference is above the numerical noise floor
+[PASS] Actual whole-engine FIR wrapper reduces 15 kHz foldback by at least 20 dB
+4x alias -108.06 dBFS, rejection -73.03 dB; 4.05x realtime (both paths kept warm)
+[PASS] Actual whole-engine FIR wrapper reduces 15 kHz foldback by at least 20 dB
+8x alias -118.71 dBFS, rejection -83.68 dB; 4.02x realtime (both paths kept warm)
+</system-out>
+	</testcase>
+	<testcase name="native_vst3" classname="native_vst3" time="6.57364" status="run">
+		<properties/>
+		<system-out>[PASS] Built VST3 factory loads exactly one effect
+[PASS] Correct native VST3 product/manufacturer identity
+[PASS] Native instance initializes: 
+[PASS] Native stereo I/O
+[PASS] Native parameter export
+Native level-matched colour residual: VCA -30.356 dBr, Dynamic -41.158 dBr
+[PASS] Actual VST3 VCA Colour parameter changes waveform beyond a scalar level change
+[PASS] Actual VST3 Dynamic Colour parameter changes waveform beyond a scalar level change
+[PASS] Native VST3 reports oversampling latency
+Actual module bypass maximum residual: 0
+[PASS] Actual VST3 POWER-off high-frequency null is sample-exact at 65 samples
+[PASS] Native editor open 1
+[PASS] Native GUI paints during live playback and automation
+[PASS] Native VST3 screenshot
+[PASS] Project recall/reopening preserves latency
+[PASS] Native editor open 2
+[PASS] Native GUI paints during live playback and automation
+[PASS] Project recall/reopening preserves latency
+[PASS] Native editor open 3
+[PASS] Native GUI paints during live playback and automation
+[PASS] ...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</system-out>
+	</testcase>
+	<testcase name="TitanCoreSmoke" classname="TitanCoreSmoke" time="0.0254123" status="run">
+		<properties/>
+		<system-out>TitanCore smoke tests passed
+</system-out>
+	</testcase>
+	<testcase name="TitanResearchRegression" classname="TitanResearchRegression" time="0.137313" status="run">
+		<properties/>
+		<system-out>Research regression tests passed
+</system-out>
+	</testcase>
+	<testcase name="TitanV05Behavior" classname="TitanV05Behavior" time="0.140998" status="run">
+		<properties/>
+		<system-out>shape0 0.011308 shape99 0.294193; bass normal 0.013206 fat 0.021847; high normal 0.014269 air 0.018919
+</system-out>
+	</testcase>
+	<testcase name="TitanOversamplingResearch" classname="TitanOversamplingResearch" time="0.0691316" status="run">
+		<properties/>
+		<system-out>Cubic alias at 3k: native 0.076766, oversampled 0.011578, rejection 16.4 dB
+</system-out>
+	</testcase>
+	<testcase name="TitanV06MusicTargets" classname="TitanV06MusicTargets" time="0.142786" status="run">
+		<properties/>
+		<system-out>bass fat/normal=1.69688 high air/normal=1.46922
+</system-out>
+	</testcase>
+	<testcase name="TitanEnvelopeBehavior" classname="TitanEnvelopeBehavior" time="0.0276722" status="run">
+		<properties/>
+		<system-out>Fast onset 0.0265651 held 0.0291919 slow held 0.0337882
+</system-out>
+	</testcase>
+	<testcase name="TitanDetectorModelsV08" classname="TitanDetectorModelsV08" time="0.0804474" status="run">
+		<properties/>
+		<system-out>Detector models + block invariance pass
+</system-out>
+	</testcase>
+	<testcase name="TitanFeedbackStabilityV09" classname="TitanFeedbackStabilityV09" time="2.97797" status="run">
+		<properties/>
+		<system-out>144 feedback law/detector/ballistics scenarios evaluated
+</system-out>
+	</testcase>
+	<testcase name="TitanIndependentSidechainsV10" classname="TitanIndependentSidechainsV10" time="0.0164068" status="run">
+		<properties/>
+		<system-out>Independent sidechain / block invariance max diff: 0
+</system-out>
+	</testcase>
+</testsuite>

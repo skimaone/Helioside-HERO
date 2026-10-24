@@ -31,4 +31,16 @@ The code’s nominal default was already 1200×111, but a globally remembered 20
 
 Preference regression fixtures use an isolated directory, so they test migration and later zoom persistence without changing real user settings or requiring access to a developer home directory. Production preference paths are unchanged.
 
-Local testing establishes all 15 current suite statuses passing, including a focused editor/native rerun after isolating preference fixtures. Native window lifecycle requires a display and is exercised on Windows CI. Windows Release verification and download will be recorded after CI. FL Studio itself is not installed on the runner.
+Local testing establishes all 15 current suite statuses passing, including a focused editor/native rerun after isolating preference fixtures. Native window lifecycle requires a display and is exercised on Windows CI. Windows x64 Release passed all 15 CTest suites with zero failures and zero skips (19 seconds) using MSVC / windows-2022 / JUCE 8.0.4. The 96-case Clean reference gives maximum sample error 0. The actual Windows VST3 confirms level-matched residuals of −30.356 dB for VCA and −41.158 dB for Dynamic. Both preference migration and subsequent zoom persistence pass on Windows; the compact capture is exactly 1200×111. Native playback/window lifecycle, project recall, no-allocation processing, stable 65-sample latency and all three exact delayed bypass routes pass. The complete artifact was downloaded again and independently verified against GitHub’s SHA256, the inner ZIP checksum, per-file manifest, AMD64 exports, 0.1.3 identity and original class IDs. All 12 original GUI PNG masters and the LCD font are embedded byte-for-byte in the delivered DLL. FL Studio itself is not installed on the runner.
+
+
+## Windows download
+
+- [Complete Windows x64 VST3](https://github.com/skimaone/Helioside-HERO/actions/runs/40083175534/artifacts/12556031867)
+- [Windows build](https://github.com/skimaone/Helioside-HERO/actions/runs/40083175534)
+- [Tests and high-resolution GUI captures](https://github.com/skimaone/Helioside-HERO/actions/runs/40083175534/artifacts/12555328851)
+- [Machine-readable delivery verification](WINDOWS_DELIVERY_0.1.3.json)
+- Compiled revision: `6674d3898faf79cbf7b6975a3a155be9abd47e47`
+- Inner plugin ZIP SHA256: `7af22d7a01581fbdf598d2f076d3b4ca42a13635b29e79fee07f88601969ea91`
+
+Close FL Studio before replacing the complete `Suntech Audio HERO.vst3` folder; preserve `Contents` and rescan. The compact default is in logical UI pixels; the host/OS controls physical display scaling.
