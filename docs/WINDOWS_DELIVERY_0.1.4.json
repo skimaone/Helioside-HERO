@@ -1,0 +1,186 @@
+{
+  "status": "PASS",
+  "revision": "ddd0f85e79df28511a181457cd736af507d706c5",
+  "sha256": "2fd5f15a032c2b6da91cc915c0293564bb0f37ba25d662cf559e07a92054b9db",
+  "files": 4,
+  "exports": [
+    "ExitDll",
+    "GetPluginFactory",
+    "InitDll"
+  ],
+  "product": "Suntech Audio HERO",
+  "version": "0.1.4",
+  "workflow_run": "https://github.com/skimaone/Helioside-HERO/actions/runs/40093417494",
+  "runner": "windows-2022",
+  "compiler": "MSVC x64 Release",
+  "juce": "8.0.4",
+  "windows_ctest": {
+    "tests": 15,
+    "failures": 0,
+    "skipped": 0,
+    "suites": [
+      {
+        "name": "production_core",
+        "classname": "production_core",
+        "time": "0.795113",
+        "status": "run"
+      },
+      {
+        "name": "colour_contract",
+        "classname": "colour_contract",
+        "time": "2.52862",
+        "status": "run"
+      },
+      {
+        "name": "processor",
+        "classname": "processor",
+        "time": "1.70737",
+        "status": "run"
+      },
+      {
+        "name": "editor",
+        "classname": "editor",
+        "time": "4.0406",
+        "status": "run"
+      },
+      {
+        "name": "alias_and_cpu",
+        "classname": "alias_and_cpu",
+        "time": "0.527609",
+        "status": "run"
+      },
+      {
+        "name": "native_vst3",
+        "classname": "native_vst3",
+        "time": "6.60453",
+        "status": "run"
+      },
+      {
+        "name": "TitanCoreSmoke",
+        "classname": "TitanCoreSmoke",
+        "time": "0.0258858",
+        "status": "run"
+      },
+      {
+        "name": "TitanResearchRegression",
+        "classname": "TitanResearchRegression",
+        "time": "0.138351",
+        "status": "run"
+      },
+      {
+        "name": "TitanV05Behavior",
+        "classname": "TitanV05Behavior",
+        "time": "0.141068",
+        "status": "run"
+      },
+      {
+        "name": "TitanOversamplingResearch",
+        "classname": "TitanOversamplingResearch",
+        "time": "0.070232",
+        "status": "run"
+      },
+      {
+        "name": "TitanV06MusicTargets",
+        "classname": "TitanV06MusicTargets",
+        "time": "0.144309",
+        "status": "run"
+      },
+      {
+        "name": "TitanEnvelopeBehavior",
+        "classname": "TitanEnvelopeBehavior",
+        "time": "0.0290662",
+        "status": "run"
+      },
+      {
+        "name": "TitanDetectorModelsV08",
+        "classname": "TitanDetectorModelsV08",
+        "time": "0.0815943",
+        "status": "run"
+      },
+      {
+        "name": "TitanFeedbackStabilityV09",
+        "classname": "TitanFeedbackStabilityV09",
+        "time": "2.98695",
+        "status": "run"
+      },
+      {
+        "name": "TitanIndependentSidechainsV10",
+        "classname": "TitanIndependentSidechainsV10",
+        "time": "0.0168354",
+        "status": "run"
+      }
+    ]
+  },
+  "reported_latency_samples": 65,
+  "gui_texture_masters_verified": 12,
+  "lcd_font_verified": true,
+  "caption": "Original baked TONE, matching MODE and METER",
+  "tone_positions": {
+    "left": "FAT",
+    "down": "Normal",
+    "right": "AIR"
+  },
+  "dsp_changes": false,
+  "artifacts": [
+    {
+      "id": 12560122150,
+      "node_id": "MDg6QXJ0aWZhY3QxMjU2MDEyMjE1MA==",
+      "name": "SuntechAudioHERO-0.1.4-Tests-and-GUI",
+      "size_in_bytes": 6353921,
+      "url": "https://api.github.com/repos/skimaone/Helioside-HERO/actions/artifacts/12560122150",
+      "archive_download_url": "https://api.github.com/repos/skimaone/Helioside-HERO/actions/artifacts/12560122150/zip",
+      "expired": false,
+      "digest": "sha256:0e7d140f8ac866f4349645dbacd51303610530b6869d569510020a29a1817154",
+      "created_at": "2026-10-24T12:23:15Z",
+      "updated_at": "2026-10-24T12:23:15Z",
+      "expires_at": "2026-11-23T12:23:13Z",
+      "workflow_run": {
+        "id": 40093417494,
+        "repository_id": 1431065210,
+        "head_repository_id": 1431065210,
+        "head_branch": "main",
+        "head_sha": "ddd0f85e79df28511a181457cd736af507d706c5"
+      }
+    },
+    {
+      "id": 12559818202,
+      "node_id": "MDg6QXJ0aWZhY3QxMjU1OTgxODIwMg==",
+      "name": "SuntechAudioHERO-0.1.4-Windows-Symbols",
+      "size_in_bytes": 24315191,
+      "url": "https://api.github.com/repos/skimaone/Helioside-HERO/actions/artifacts/12559818202",
+      "archive_download_url": "https://api.github.com/repos/skimaone/Helioside-HERO/actions/artifacts/12559818202/zip",
+      "expired": false,
+      "digest": "sha256:7633f536013739ff323873ebb625e9b209108dfd3db11201e0fda39d3a02b232",
+      "created_at": "2026-10-24T12:23:19Z",
+      "updated_at": "2026-10-24T12:23:19Z",
+      "expires_at": "2026-11-23T12:23:15Z",
+      "workflow_run": {
+        "id": 40093417494,
+        "repository_id": 1431065210,
+        "head_repository_id": 1431065210,
+        "head_branch": "main",
+        "head_sha": "ddd0f85e79df28511a181457cd736af507d706c5"
+      }
+    },
+    {
+      "id": 12559768462,
+      "node_id": "MDg6QXJ0aWZhY3QxMjU1OTc2ODQ2Mg==",
+      "name": "SuntechAudioHERO-0.1.4-Windows-x64-VST3",
+      "size_in_bytes": 7397070,
+      "url": "https://api.github.com/repos/skimaone/Helioside-HERO/actions/artifacts/12559768462",
+      "archive_download_url": "https://api.github.com/repos/skimaone/Helioside-HERO/actions/artifacts/12559768462/zip",
+      "expired": false,
+      "digest": "sha256:9a940e52a6e7203a5f09041f07d078cd45a2c66e2dafb56b05c39998f5439fe7",
+      "created_at": "2026-10-24T12:23:11Z",
+      "updated_at": "2026-10-24T12:23:11Z",
+      "expires_at": "2026-11-23T12:23:09Z",
+      "workflow_run": {
+        "id": 40093417494,
+        "repository_id": 1431065210,
+        "head_repository_id": 1431065210,
+        "head_branch": "main",
+        "head_sha": "ddd0f85e79df28511a181457cd736af507d706c5"
+      }
+    }
+  ]
+}

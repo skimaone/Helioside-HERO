@@ -2,13 +2,13 @@
 
 Windows x64 VST3 feedback compressor built from the supplied Titan research v10 engine, with the supplied Suntech Audio HERO rack GUI. This is an independent Titan-inspired software model, not a measured circuit-identical or manufacturer-endorsed emulation.
 
-**Windows x64 Release 0.1.3: verified.** [Download the complete VST3](https://github.com/skimaone/Helioside-HERO/actions/runs/40083175534/artifacts/12556031867) · [Tests and GUI captures](https://github.com/skimaone/Helioside-HERO/actions/runs/40083175534/artifacts/12555328851) · [Build report and colour measurements](docs/RELEASE_0.1.3.md)
+**Windows x64 Release 0.1.4: verified.** [Download the complete VST3](https://github.com/skimaone/Helioside-HERO/actions/runs/40093417494/artifacts/12559768462) · [Tests and GUI captures](https://github.com/skimaone/Helioside-HERO/actions/runs/40093417494/artifacts/12560122150) · [TONE caption and build report](docs/RELEASE_0.1.4.md)
 
 ![Suntech Audio HERO Windows interface](docs/HERO.png)
 
 ## Install
 
-Download the Windows VST3 artifact from a successful [Actions build](https://github.com/skimaone/Helioside-HERO/actions). Extract the artifact and its inner `SuntechAudioHERO-0.1.3-Windows-x64-VST3.zip`. Close FL Studio, copy the complete `Suntech Audio HERO.vst3` folder to `C:\Program Files\Common Files\VST3`, keeping `Contents` intact, then rescan in Plugin Manager. The ZIP includes checksums and a per-file manifest.
+Download the Windows VST3 artifact from a successful [Actions build](https://github.com/skimaone/Helioside-HERO/actions). Extract the artifact and its inner `SuntechAudioHERO-0.1.4-Windows-x64-VST3.zip`. Close FL Studio, copy the complete `Suntech Audio HERO.vst3` folder to `C:\Program Files\Common Files\VST3`, keeping `Contents` intact, then rescan in Plugin Manager. The ZIP includes checksums and a per-file manifest.
 
 ## Controls
 
@@ -17,7 +17,7 @@ Download the Windows VST3 artifact from a successful [Actions build](https://git
 - Parallel Mix has 16 positions: 0 is 94% dry / 6% compressed; 15 is fully compressed (default). The dry and wet branches share the oversampled timeline.
 - Gain provides 0–11.5 dB make-up in 0.5 dB steps on the compressed branch.
 - The IN / OUT front switch engages compression or provides raw bypass delayed by the reported plugin latency. Right-click → Stereo control selects Linked (default) or Independent L/R; OUT → IN restores that selection. POWER off and host bypass follow the same delayed-raw policy. Transitions fade over 20 ms.
-- FAT / NORMAL / AIR select the draft's GR-dependent detector/audio voicing; NORMAL is default. The front toggle selects FAT left / NORMAL down / AIR right. Click the corresponding throw or drag towards it; left/right/down arrow keys follow the same positions. Right-click → Tone also retains all three options.
+- FAT / NORMAL / AIR select the draft's GR-dependent detector/audio voicing; NORMAL is default. The front toggle, labelled TONE in the same faceplate style as METER and MODE, selects FAT left / NORMAL down / AIR right. Normal is implied by the neutral down position. Click the corresponding throw or drag towards it; left/right/down arrow keys follow the same positions. Right-click → Tone also retains all three options.
 - GR shows actual modeled attenuation. LEVEL is output peak level relative to the −18 dBFS = 0 VU convention. The meter spans −21 to +20 relative dB. It is not a loudness meter.
 - Fresh instances open at 1200×111 logical pixels, smaller than Trakka’s 1440×133. Oversized preferences from older HERO versions are capped at 100% once; smaller legacy sizes and zooms chosen after migration are retained. Original high-resolution artwork and 75–200% zoom remain.
 - Right-click the faceplate for stereo control, tone, 4x/8x whole-engine FIR oversampling (4x default), interface zoom and About. Latency stays at 65 host samples; both quality paths remain warm for smooth switching.
